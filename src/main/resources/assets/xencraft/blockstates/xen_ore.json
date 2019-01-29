@@ -6,13 +6,12 @@
 				"model": "forge:multi-layer",
 				"transform": "forge:default-block",
 				"custom": {
-					"base": "xencraft:xen_ore#base",
-					"Solid": "xencraft:xen_ore#base",
+					"base": "minecraft:stone#normal",
+					"Solid": "minecraft:stone#normal",
 					"Cutout": "xencraft:xen_ore#overlay"
 				}
 			}
 		],
-		"base": [{"model": "minecraft:stone"}],
 		"overlay": [
 			{"model": "xencraft:xen_ore_overlay_1"},
 			{"model": "xencraft:xen_ore_overlay_2"},
