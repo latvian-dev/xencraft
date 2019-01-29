@@ -1,1 +1,1 @@
-# Xen-Craft
+# XenCraft [![](http://cf.way2muchnoise.eu/xencraft.svg)](https://minecraft.curseforge.com/projects/xencraft) [![](http://cf.way2muchnoise.eu/versions/xencraft.svg)](https://minecraft.curseforge.com/projects/xencraft)
