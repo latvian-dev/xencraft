@@ -1,2 +1,27 @@
 # Item Group
 itemGroup.xencraft=XenCraft
+
+# Blocks
+tile.xencraft.xen_ore.name=Xen Ore
+tile.xencraft.xen_block.name=Xen Block
+
+# Items
+item.xencraft.xen_gem.name=Xen
+item.xencraft.xen_ingot.name=Xen Ingot
+
+xencraft.color.white=White
+xencraft.color.gray=Gray
+xencraft.color.black=Black
+xencraft.color.brown=Brown
+xencraft.color.red=Red
+xencraft.color.orange=Orange
+xencraft.color.yellow=Yellow
+xencraft.color.lime=Lime
+xencraft.color.green=Green
+xencraft.color.teal=Teal
+xencraft.color.cyan=Cyan
+xencraft.color.sky=Sky
+xencraft.color.blue=Blue
+xencraft.color.purple=Purple
+xencraft.color.magenta=Magenta
+xencraft.color.pink=Pink

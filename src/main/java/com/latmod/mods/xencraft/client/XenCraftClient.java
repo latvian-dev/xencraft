@@ -12,6 +12,18 @@ public class XenCraftClient extends XenCraftCommon
 	@Override
 	public int getXenLightValue()
 	{
-		return MinecraftForgeClient.getRenderLayer() == BlockRenderLayer.TRANSLUCENT ? 15 : 0;
+		return MinecraftForgeClient.getRenderLayer() == BlockRenderLayer.SOLID ? 15 : 0;
+	}
+
+	@Override
+	public int getXenOreLightValue()
+	{
+		return MinecraftForgeClient.getRenderLayer() == BlockRenderLayer.CUTOUT ? 15 : 0;
+	}
+
+	@Override
+	public void postInit()
+	{
+		XenCraftClientEventHandler.registerColors();
 	}
 }

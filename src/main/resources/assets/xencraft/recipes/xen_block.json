@@ -1,0 +1,13 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"group": "xencraft:block",
+	"result": {"item": "xen_block", "data": 0},
+	"pattern": [
+		"XXX",
+		"XXX",
+		"XXX"
+	],
+	"key": {
+		"X": {"type": "forge:ore_dict", "ore": "gemXen"}
+	}
+}

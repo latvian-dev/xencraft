@@ -9,4 +9,13 @@ public class XenCraftCommon
 	{
 		return 0;
 	}
+
+	public int getXenOreLightValue()
+	{
+		return 0;
+	}
+
+	public void postInit()
+	{
+	}
 }

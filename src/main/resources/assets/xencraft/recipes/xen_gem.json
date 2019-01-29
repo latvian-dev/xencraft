@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "xencraft:block",
+	"result": {"item": "xen_gem", "count": 9},
+	"ingredients": [
+		{"type": "forge:ore_dict", "ore": "blockXen"}
+	]
+}

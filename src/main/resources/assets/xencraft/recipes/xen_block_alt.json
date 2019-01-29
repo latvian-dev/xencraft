@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "modularpipes:module",
+	"result": {"item": "xen_block", "data": 0},
+	"ingredients": [
+		{"type": "forge:ore_dict", "ore": "blockXen"}
+	]
+}

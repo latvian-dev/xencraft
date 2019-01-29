@@ -1,0 +1,6 @@
+{
+	"parent": "xencraft:block/xen_ore_overlay",
+	"textures": {
+		"texture": "xencraft:blocks/xen_ore_overlay_2"
+	}
+}

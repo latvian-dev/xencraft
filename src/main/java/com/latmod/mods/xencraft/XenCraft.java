@@ -1,12 +1,16 @@
 package com.latmod.mods.xencraft;
 
+import com.latmod.mods.xencraft.item.XenCraftItems;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.oredict.OreDictionary;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -34,7 +38,7 @@ public class XenCraft
 		@Override
 		public ItemStack createIcon()
 		{
-			return new ItemStack(Items.DIAMOND);
+			return new ItemStack(XenCraftItems.XEN_GEM);
 		}
 	};
 
@@ -43,5 +47,22 @@ public class XenCraft
 	{
 		//NetworkRegistry.INSTANCE.registerGuiHandler(this, XenCraftGuiHandler.INSTANCE);
 		//XenCraftNet.init();
+	}
+
+	@EventHandler
+	public void onInit(FMLInitializationEvent event)
+	{
+		OreDictionary.registerOre("oreXen", XenCraftItems.XEN_ORE);
+		OreDictionary.registerOre("blockXen", new ItemStack(XenCraftItems.XEN_BLOCK, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("gemXen", XenCraftItems.XEN_GEM);
+		OreDictionary.registerOre("ingotXen", XenCraftItems.XEN_INGOT);
+	}
+
+	@EventHandler
+	public void onPostInit(FMLPostInitializationEvent event)
+	{
+		FurnaceRecipes.instance().addSmelting(XenCraftItems.XEN_ORE, new ItemStack(XenCraftItems.XEN_GEM, 6), 1F);
+		FurnaceRecipes.instance().addSmelting(XenCraftItems.XEN_GEM, new ItemStack(XenCraftItems.XEN_INGOT), 0.1F);
+		PROXY.postInit();
 	}
 }
