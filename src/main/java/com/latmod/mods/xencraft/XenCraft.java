@@ -53,7 +53,7 @@ public class XenCraft
 	public void onInit(FMLInitializationEvent event)
 	{
 		OreDictionary.registerOre("oreXen", XenCraftItems.XEN_ORE);
-		OreDictionary.registerOre("blockXen", new ItemStack(XenCraftItems.XEN_BLOCK, 1, OreDictionary.WILDCARD_VALUE));
+		OreDictionary.registerOre("blockXen", new ItemStack(XenCraftItems.XEN_GEM_BLOCK, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("gemXen", XenCraftItems.XEN_GEM);
 		OreDictionary.registerOre("ingotXen", XenCraftItems.XEN_INGOT);
 	}

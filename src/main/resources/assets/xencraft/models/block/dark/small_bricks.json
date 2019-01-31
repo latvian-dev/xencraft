@@ -1,0 +1,6 @@
+{
+	"parent": "xencraft:block/overlay",
+	"textures": {
+		"texture": "xencraft:blocks/dark/small_bricks"
+	}
+}

@@ -1,6 +1,6 @@
 {
 	"parent": "xencraft:block/overlay",
 	"textures": {
-		"texture": "xencraft:blocks/xen_block_overlay"
+		"texture": "xencraft:blocks/dark/block"
 	}
 }

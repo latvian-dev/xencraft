@@ -9,9 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.client.MinecraftForgeClient;
 
 import java.util.Random;
 
@@ -70,22 +68,9 @@ public class BlockXenOre extends Block
 	}
 
 	@Override
-	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos)
+	@Deprecated
+	public int getLightValue(IBlockState state)
 	{
 		return XenCraft.PROXY.getXenOreLightValue();
-	}
-
-	@Override
-	@Deprecated
-	public int getPackedLightmapCoords(IBlockState state, IBlockAccess source, BlockPos pos)
-	{
-		if (MinecraftForgeClient.getRenderLayer() == BlockRenderLayer.CUTOUT)
-		{
-			int result = source.getCombinedLight(pos, 15);
-			int skylight = (result >> 16) & 0xFFFF;
-			return (skylight << 16) | (15 << 4);
-		}
-
-		return super.getPackedLightmapCoords(state, source, pos);
 	}
 }

@@ -41,10 +41,24 @@ public class XenCraftClientEventHandler
 	public static void registerModels(ModelRegistryEvent event)
 	{
 		addModel(XenCraftItems.XEN_ORE, "normal");
-		addXenModel(XenCraftBlocks.XEN_BLOCK, XenCraftItems.XEN_BLOCK);
+		addXenModel(XenCraftBlocks.XEN_GEM_BLOCK, XenCraftItems.XEN_GEM_BLOCK);
+		addModel(XenCraftItems.DARK_XENSTONE, "normal");
+		addXenModel(XenCraftBlocks.DARK_XEN_BLOCK, XenCraftItems.DARK_XEN_BLOCK);
+		addXenModel(XenCraftBlocks.DARK_XEN_BRICKS, XenCraftItems.DARK_XEN_BRICKS);
+		addXenModel(XenCraftBlocks.DARK_XEN_SMALL_BRICKS, XenCraftItems.DARK_XEN_SMALL_BRICKS);
+		addXenModel(XenCraftBlocks.DARK_XEN_PLATE, XenCraftItems.DARK_XEN_PLATE);
+		addXenModel(XenCraftBlocks.DARK_XEN_TILES, XenCraftItems.DARK_XEN_TILES);
+		addXenModel(XenCraftBlocks.DARK_XEN_SMALL_TILES, XenCraftItems.DARK_XEN_SMALL_TILES);
+		addModel(XenCraftItems.LIGHT_XENSTONE, "normal");
+		addXenModel(XenCraftBlocks.LIGHT_XEN_BLOCK, XenCraftItems.LIGHT_XEN_BLOCK);
+		addXenModel(XenCraftBlocks.LIGHT_XEN_BRICKS, XenCraftItems.LIGHT_XEN_BRICKS);
+		addXenModel(XenCraftBlocks.LIGHT_XEN_SMALL_BRICKS, XenCraftItems.LIGHT_XEN_SMALL_BRICKS);
+		addXenModel(XenCraftBlocks.LIGHT_XEN_PLATE, XenCraftItems.LIGHT_XEN_PLATE);
+		addXenModel(XenCraftBlocks.LIGHT_XEN_TILES, XenCraftItems.LIGHT_XEN_TILES);
+		addXenModel(XenCraftBlocks.LIGHT_XEN_SMALL_TILES, XenCraftItems.LIGHT_XEN_SMALL_TILES);
 
-		addModel(XenCraftItems.XEN_GEM, "normal");
-		addModel(XenCraftItems.XEN_INGOT, "normal");
+		addModel(XenCraftItems.XEN_GEM, "inventory");
+		addModel(XenCraftItems.XEN_INGOT, "inventory");
 	}
 
 	public static void registerColors()
@@ -53,9 +67,33 @@ public class XenCraftClientEventHandler
 				XenCraftBlocks.XEN_ORE);
 
 		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> tintIndex == 0 ? state.getValue(BlockXen.COLOR).getColor() : 0xFFFFFFFF,
-				XenCraftBlocks.XEN_BLOCK);
+				XenCraftBlocks.XEN_GEM_BLOCK,
+				XenCraftBlocks.DARK_XEN_BLOCK,
+				XenCraftBlocks.DARK_XEN_BRICKS,
+				XenCraftBlocks.DARK_XEN_SMALL_BRICKS,
+				XenCraftBlocks.DARK_XEN_PLATE,
+				XenCraftBlocks.DARK_XEN_TILES,
+				XenCraftBlocks.DARK_XEN_SMALL_TILES,
+				XenCraftBlocks.LIGHT_XEN_BLOCK,
+				XenCraftBlocks.LIGHT_XEN_BRICKS,
+				XenCraftBlocks.LIGHT_XEN_SMALL_BRICKS,
+				XenCraftBlocks.LIGHT_XEN_PLATE,
+				XenCraftBlocks.LIGHT_XEN_TILES,
+				XenCraftBlocks.LIGHT_XEN_SMALL_TILES);
 
 		Minecraft.getMinecraft().getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? EnumXenColor.byMeta(stack.getMetadata()).getColor() : 0xFFFFFFFF,
-				XenCraftItems.XEN_BLOCK);
+				XenCraftItems.XEN_GEM_BLOCK,
+				XenCraftItems.DARK_XEN_BLOCK,
+				XenCraftItems.DARK_XEN_BRICKS,
+				XenCraftItems.DARK_XEN_SMALL_BRICKS,
+				XenCraftItems.DARK_XEN_PLATE,
+				XenCraftItems.DARK_XEN_TILES,
+				XenCraftItems.DARK_XEN_SMALL_TILES,
+				XenCraftItems.LIGHT_XEN_BLOCK,
+				XenCraftItems.LIGHT_XEN_BRICKS,
+				XenCraftItems.LIGHT_XEN_SMALL_BRICKS,
+				XenCraftItems.LIGHT_XEN_PLATE,
+				XenCraftItems.LIGHT_XEN_TILES,
+				XenCraftItems.LIGHT_XEN_SMALL_TILES);
 	}
 }

@@ -2,6 +2,8 @@ package com.latmod.mods.xencraft;
 
 import com.latmod.mods.xencraft.block.BlockXen;
 import com.latmod.mods.xencraft.block.BlockXenOre;
+import com.latmod.mods.xencraft.block.BlockXenPlate;
+import com.latmod.mods.xencraft.block.BlockXenstone;
 import com.latmod.mods.xencraft.block.XenCraftBlocks;
 import com.latmod.mods.xencraft.item.ItemBlockXen;
 import net.minecraft.block.Block;
@@ -39,17 +41,44 @@ public class XenCraftEventHandler
 	{
 		IForgeRegistry<Block> r = event.getRegistry();
 		r.register(withName(new BlockXenOre(), "xen_ore"));
-		r.register(withName(new BlockXen(), "xen_block"));
+		r.register(withName(new BlockXen(), "xen_gem_block"));
+		r.register(withName(new BlockXenstone(true), "dark_xenstone"));
+		r.register(withName(new BlockXen(), "dark_xen_block"));
+		r.register(withName(new BlockXen(), "dark_xen_bricks"));
+		r.register(withName(new BlockXen(), "dark_xen_small_bricks"));
+		r.register(withName(new BlockXenPlate(), "dark_xen_plate"));
+		r.register(withName(new BlockXen(), "dark_xen_tiles"));
+		r.register(withName(new BlockXen(), "dark_xen_small_tiles"));
+		r.register(withName(new BlockXenstone(false), "light_xenstone"));
+		r.register(withName(new BlockXen(), "light_xen_block"));
+		r.register(withName(new BlockXen(), "light_xen_bricks"));
+		r.register(withName(new BlockXen(), "light_xen_small_bricks"));
+		r.register(withName(new BlockXenPlate(), "light_xen_plate"));
+		r.register(withName(new BlockXen(), "light_xen_tiles"));
+		r.register(withName(new BlockXen(), "light_xen_small_tiles"));
 	}
 
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event)
 	{
 		IForgeRegistry<Item> r = event.getRegistry();
-		r.register(new ItemBlock(XenCraftBlocks.XEN_ORE).setRegistryName("xen_ore"));
-		r.register(new ItemBlockXen(XenCraftBlocks.XEN_BLOCK).setRegistryName("xen_block"));
-
 		r.register(withName(new Item(), "xen_gem"));
 		r.register(withName(new Item(), "xen_ingot"));
+		r.register(new ItemBlock(XenCraftBlocks.XEN_ORE).setRegistryName("xen_ore"));
+		r.register(new ItemBlockXen(XenCraftBlocks.XEN_GEM_BLOCK).setRegistryName("xen_gem_block"));
+		r.register(new ItemBlockXen(XenCraftBlocks.DARK_XENSTONE).setRegistryName("dark_xenstone"));
+		r.register(new ItemBlockXen(XenCraftBlocks.DARK_XEN_BLOCK).setRegistryName("dark_xen_block"));
+		r.register(new ItemBlockXen(XenCraftBlocks.DARK_XEN_BRICKS).setRegistryName("dark_xen_bricks"));
+		r.register(new ItemBlockXen(XenCraftBlocks.DARK_XEN_SMALL_BRICKS).setRegistryName("dark_xen_small_bricks"));
+		r.register(new ItemBlockXen(XenCraftBlocks.DARK_XEN_PLATE).setRegistryName("dark_xen_plate"));
+		r.register(new ItemBlockXen(XenCraftBlocks.DARK_XEN_TILES).setRegistryName("dark_xen_tiles"));
+		r.register(new ItemBlockXen(XenCraftBlocks.DARK_XEN_SMALL_TILES).setRegistryName("dark_xen_small_tiles"));
+		r.register(new ItemBlockXen(XenCraftBlocks.LIGHT_XENSTONE).setRegistryName("light_xenstone"));
+		r.register(new ItemBlockXen(XenCraftBlocks.LIGHT_XEN_BLOCK).setRegistryName("light_xen_block"));
+		r.register(new ItemBlockXen(XenCraftBlocks.LIGHT_XEN_BRICKS).setRegistryName("light_xen_bricks"));
+		r.register(new ItemBlockXen(XenCraftBlocks.LIGHT_XEN_SMALL_BRICKS).setRegistryName("light_xen_small_bricks"));
+		r.register(new ItemBlockXen(XenCraftBlocks.LIGHT_XEN_PLATE).setRegistryName("light_xen_plate"));
+		r.register(new ItemBlockXen(XenCraftBlocks.LIGHT_XEN_TILES).setRegistryName("light_xen_tiles"));
+		r.register(new ItemBlockXen(XenCraftBlocks.LIGHT_XEN_SMALL_TILES).setRegistryName("light_xen_small_tiles"));
 	}
 }

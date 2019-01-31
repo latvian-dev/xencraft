@@ -16,7 +16,6 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -78,23 +77,10 @@ public class BlockXen extends Block
 	}
 
 	@Override
-	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos)
+	@Deprecated
+	public int getLightValue(IBlockState state)
 	{
 		return XenCraft.PROXY.getXenLightValue();
-	}
-
-	@Override
-	@Deprecated
-	public int getPackedLightmapCoords(IBlockState state, IBlockAccess source, BlockPos pos)
-	{
-		if (MinecraftForgeClient.getRenderLayer() == BlockRenderLayer.SOLID)
-		{
-			int result = source.getCombinedLight(pos, 15);
-			int skylight = (result >> 16) & 0xFFFF;
-			return (skylight << 16) | (15 << 4);
-		}
-
-		return super.getPackedLightmapCoords(state, source, pos);
 	}
 
 	@Override
