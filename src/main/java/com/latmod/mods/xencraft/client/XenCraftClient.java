@@ -20,10 +20,4 @@ public class XenCraftClient extends XenCraftCommon
 	{
 		return MinecraftForgeClient.getRenderLayer() == BlockRenderLayer.CUTOUT ? 15 : 0;
 	}
-
-	@Override
-	public void postInit()
-	{
-		XenCraftClientEventHandler.registerColors();
-	}
 }

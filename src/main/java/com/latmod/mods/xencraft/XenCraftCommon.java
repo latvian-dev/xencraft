@@ -14,8 +14,4 @@ public class XenCraftCommon
 	{
 		return 0;
 	}
-
-	public void postInit()
-	{
-	}
 }

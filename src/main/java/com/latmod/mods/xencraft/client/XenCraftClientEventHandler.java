@@ -6,10 +6,10 @@ import com.latmod.mods.xencraft.block.EnumXenColor;
 import com.latmod.mods.xencraft.block.XenCraftBlocks;
 import com.latmod.mods.xencraft.item.XenCraftItems;
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.item.Item;
+import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Mod;
@@ -61,12 +61,13 @@ public class XenCraftClientEventHandler
 		addModel(XenCraftItems.XEN_INGOT, "inventory");
 	}
 
-	public static void registerColors()
+	@SubscribeEvent
+	public static void registerBlockColors(ColorHandlerEvent.Block event)
 	{
-		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> tintIndex == 0 ? EnumXenColor.getBrightColor(pos).getColor() : 0xFFFFFFFF,
+		event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> tintIndex == 0 ? EnumXenColor.getBrightColor(pos).getColor() : 0xFFFFFFFF,
 				XenCraftBlocks.XEN_ORE);
 
-		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> tintIndex == 0 ? state.getValue(BlockXen.COLOR).getColor() : 0xFFFFFFFF,
+		event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> tintIndex == 0 ? state.getValue(BlockXen.COLOR).getColor() : 0xFFFFFFFF,
 				XenCraftBlocks.XEN_GEM_BLOCK,
 				XenCraftBlocks.DARK_XEN_BLOCK,
 				XenCraftBlocks.DARK_XEN_BRICKS,
@@ -80,8 +81,12 @@ public class XenCraftClientEventHandler
 				XenCraftBlocks.LIGHT_XEN_PLATE,
 				XenCraftBlocks.LIGHT_XEN_TILES,
 				XenCraftBlocks.LIGHT_XEN_SMALL_TILES);
+	}
 
-		Minecraft.getMinecraft().getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? EnumXenColor.byMeta(stack.getMetadata()).getColor() : 0xFFFFFFFF,
+	@SubscribeEvent
+	public static void registerItemColors(ColorHandlerEvent.Item event)
+	{
+		event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? EnumXenColor.byMeta(stack.getMetadata()).getColor() : 0xFFFFFFFF,
 				XenCraftItems.XEN_GEM_BLOCK,
 				XenCraftItems.DARK_XEN_BLOCK,
 				XenCraftItems.DARK_XEN_BRICKS,

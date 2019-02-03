@@ -63,6 +63,5 @@ public class XenCraft
 	{
 		FurnaceRecipes.instance().addSmelting(XenCraftItems.XEN_ORE, new ItemStack(XenCraftItems.XEN_GEM, 6), 1F);
 		FurnaceRecipes.instance().addSmelting(XenCraftItems.XEN_GEM, new ItemStack(XenCraftItems.XEN_INGOT), 0.1F);
-		PROXY.postInit();
 	}
 }
