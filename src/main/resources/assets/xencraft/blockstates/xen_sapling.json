@@ -1,0 +1,23 @@
+{
+	"forge_marker": 1,
+	"variants": {
+		"normal": [
+			{
+				"model": "forge:multi-layer",
+				"transform": "forge:default-block",
+				"custom": {
+					"base": "xencraft:xen_sapling#base",
+					"Mipped Cutout": "xencraft:xen_sapling#base",
+					"Cutout": "xencraft:xen_sapling#overlay"
+				}
+			}
+		],
+		"base": [{"model": "xencraft:xen_sapling_base"}],
+		"overlay": [
+			{"model": "xencraft:xen_sapling_overlay_1"},
+			{"model": "xencraft:xen_sapling_overlay_2"},
+			{"model": "xencraft:xen_sapling_overlay_3"},
+			{"model": "xencraft:xen_sapling_overlay_4"}
+		]
+	}
+}

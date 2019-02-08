@@ -71,6 +71,6 @@ public class BlockXenOre extends Block
 	@Deprecated
 	public int getLightValue(IBlockState state)
 	{
-		return XenCraft.PROXY.getXenOreLightValue();
+		return XenCraft.PROXY.getCutoutXenLightValue();
 	}
 }

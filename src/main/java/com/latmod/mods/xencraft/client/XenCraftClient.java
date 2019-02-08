@@ -10,13 +10,13 @@ import net.minecraftforge.client.MinecraftForgeClient;
 public class XenCraftClient extends XenCraftCommon
 {
 	@Override
-	public int getXenLightValue()
+	public int getSolidXenLightValue()
 	{
 		return MinecraftForgeClient.getRenderLayer() == BlockRenderLayer.SOLID ? 15 : 0;
 	}
 
 	@Override
-	public int getXenOreLightValue()
+	public int getCutoutXenLightValue()
 	{
 		return MinecraftForgeClient.getRenderLayer() == BlockRenderLayer.CUTOUT ? 15 : 0;
 	}

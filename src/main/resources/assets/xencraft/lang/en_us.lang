@@ -3,6 +3,7 @@ itemGroup.xencraft=XenCraft
 
 # Blocks
 tile.xencraft.xen_ore.name=Xen Ore
+tile.xencraft.xen_sapling.name=Xen Sapling
 tile.xencraft.xen_gem_block.name=Xen Gem Block
 tile.xencraft.dark_xenstone.name=Dark Xenstone
 tile.xencraft.dark_xen_block.name=Dark Xen Block

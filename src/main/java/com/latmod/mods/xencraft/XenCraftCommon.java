@@ -5,12 +5,12 @@ package com.latmod.mods.xencraft;
  */
 public class XenCraftCommon
 {
-	public int getXenLightValue()
+	public int getSolidXenLightValue()
 	{
 		return 0;
 	}
 
-	public int getXenOreLightValue()
+	public int getCutoutXenLightValue()
 	{
 		return 0;
 	}

@@ -2,6 +2,7 @@ package com.latmod.mods.xencraft.client;
 
 import com.latmod.mods.xencraft.XenCraft;
 import com.latmod.mods.xencraft.block.BlockXen;
+import com.latmod.mods.xencraft.block.BlockXenSapling;
 import com.latmod.mods.xencraft.block.EnumXenColor;
 import com.latmod.mods.xencraft.block.XenCraftBlocks;
 import com.latmod.mods.xencraft.item.XenCraftItems;
@@ -41,6 +42,8 @@ public class XenCraftClientEventHandler
 	public static void registerModels(ModelRegistryEvent event)
 	{
 		addModel(XenCraftItems.XEN_ORE, "normal");
+		addModel(XenCraftItems.XEN_SAPLING, "normal");
+		ModelLoader.setCustomStateMapper(XenCraftBlocks.XEN_SAPLING, new StateMap.Builder().ignore(BlockXenSapling.STAGE).build());
 		addXenModel(XenCraftBlocks.XEN_GEM_BLOCK, XenCraftItems.XEN_GEM_BLOCK);
 		addModel(XenCraftItems.DARK_XENSTONE, "normal");
 		addXenModel(XenCraftBlocks.DARK_XEN_BLOCK, XenCraftItems.DARK_XEN_BLOCK);

@@ -12,6 +12,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class XenCraftItems
 {
 	public static final Item XEN_ORE = Items.AIR;
+	public static final Item XEN_SAPLING = Items.AIR;
 	public static final Item XEN_GEM_BLOCK = Items.AIR;
 	public static final Item DARK_XENSTONE = Items.AIR;
 	public static final Item DARK_XEN_BLOCK = Items.AIR;
