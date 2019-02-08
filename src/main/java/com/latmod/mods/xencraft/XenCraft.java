@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -45,6 +46,7 @@ public class XenCraft
 	@EventHandler
 	public void onPreInit(FMLPreInitializationEvent event)
 	{
+		GameRegistry.registerWorldGenerator(new XenCraftWorldGenerator(), 0);
 		//NetworkRegistry.INSTANCE.registerGuiHandler(this, XenCraftGuiHandler.INSTANCE);
 		//XenCraftNet.init();
 	}
