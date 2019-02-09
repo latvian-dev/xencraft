@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "xencraft:block",
+	"result": {"item": "xen_gem"},
+	"ingredients": [
+		{"item": "xen_sapling"}
+	]
+}

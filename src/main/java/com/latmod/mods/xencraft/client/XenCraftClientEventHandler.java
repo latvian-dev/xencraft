@@ -7,6 +7,7 @@ import com.latmod.mods.xencraft.block.EnumXenColor;
 import com.latmod.mods.xencraft.block.XenCraftBlocks;
 import com.latmod.mods.xencraft.item.XenCraftItems;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockLeaves;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.item.Item;
@@ -16,6 +17,8 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
+
+import java.awt.*;
 
 /**
  * @author LatvianModder
@@ -44,6 +47,9 @@ public class XenCraftClientEventHandler
 		addModel(XenCraftItems.XEN_ORE, "normal");
 		addModel(XenCraftItems.XEN_SAPLING, "normal");
 		ModelLoader.setCustomStateMapper(XenCraftBlocks.XEN_SAPLING, new StateMap.Builder().ignore(BlockXenSapling.STAGE).build());
+		addModel(XenCraftItems.XEN_LOG, "normal");
+		addModel(XenCraftItems.XEN_LEAVES, "normal");
+		ModelLoader.setCustomStateMapper(XenCraftBlocks.XEN_LEAVES, new StateMap.Builder().ignore(BlockLeaves.CHECK_DECAY, BlockLeaves.DECAYABLE).build());
 		addXenModel(XenCraftBlocks.XEN_GEM_BLOCK, XenCraftItems.XEN_GEM_BLOCK);
 		addModel(XenCraftItems.DARK_XENSTONE, "normal");
 		addXenModel(XenCraftBlocks.DARK_XEN_BLOCK, XenCraftItems.DARK_XEN_BLOCK);
@@ -68,7 +74,10 @@ public class XenCraftClientEventHandler
 	public static void registerBlockColors(ColorHandlerEvent.Block event)
 	{
 		event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> tintIndex == 0 ? EnumXenColor.getBrightColor(pos).getColor() : 0xFFFFFFFF,
-				XenCraftBlocks.XEN_ORE);
+				XenCraftBlocks.XEN_ORE,
+				XenCraftBlocks.XEN_SAPLING,
+				XenCraftBlocks.XEN_LOG,
+				XenCraftBlocks.XEN_LEAVES);
 
 		event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> tintIndex == 0 ? state.getValue(BlockXen.COLOR).getColor() : 0xFFFFFFFF,
 				XenCraftBlocks.XEN_GEM_BLOCK,
@@ -89,6 +98,12 @@ public class XenCraftClientEventHandler
 	@SubscribeEvent
 	public static void registerItemColors(ColorHandlerEvent.Item event)
 	{
+		event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? Color.HSBtoRGB((System.currentTimeMillis() % 10000L) / 10000F, 0.7F, 0.9F) : 0xFFFFFFFF,
+				XenCraftItems.XEN_ORE,
+				XenCraftItems.XEN_SAPLING,
+				XenCraftItems.XEN_LOG,
+				XenCraftItems.XEN_LEAVES);
+
 		event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? EnumXenColor.byMeta(stack.getMetadata()).getColor() : 0xFFFFFFFF,
 				XenCraftItems.XEN_GEM_BLOCK,
 				XenCraftItems.DARK_XEN_BLOCK,

@@ -1,0 +1,21 @@
+{
+	"forge_marker": 1,
+	"variants": {
+		"normal": [
+			{
+				"model": "forge:multi-layer",
+				"transform": "forge:default-block",
+				"custom": {
+					"base": "minecraft:dark_oak_log#axis=none",
+					"Solid": "minecraft:dark_oak_log#axis=none",
+					"Cutout": "xencraft:xen_log#overlay"
+				}
+			}
+		],
+		"overlay": [
+			{"model": "xencraft:xen_log_overlay_1"},
+			{"model": "xencraft:xen_log_overlay_2"},
+			{"model": "xencraft:xen_log_overlay_3"}
+		]
+	}
+}

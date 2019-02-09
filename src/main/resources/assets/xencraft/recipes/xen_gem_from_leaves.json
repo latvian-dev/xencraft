@@ -1,0 +1,11 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "xencraft:gem",
+	"result": {"item": "xen_gem"},
+	"ingredients": [
+		{"item": "xen_leaves"},
+		{"item": "xen_leaves"},
+		{"item": "xen_leaves"},
+		{"item": "xen_leaves"}
+	]
+}

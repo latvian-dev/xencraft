@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"group": "xencraft:sapling",
+	"result": {"item": "xen_sapling"},
+	"pattern": [
+		"XXX",
+		"XSX",
+		"XXX"
+	],
+	"key": {
+		"X": {"type": "forge:ore_dict", "ore": "gemXen"},
+		"S": {"type": "forge:ore_dict", "ore": "treeSapling"}
+	}
+}

@@ -1,6 +1,8 @@
 package com.latmod.mods.xencraft;
 
 import com.latmod.mods.xencraft.block.BlockXen;
+import com.latmod.mods.xencraft.block.BlockXenLeaves;
+import com.latmod.mods.xencraft.block.BlockXenLog;
 import com.latmod.mods.xencraft.block.BlockXenOre;
 import com.latmod.mods.xencraft.block.BlockXenPlate;
 import com.latmod.mods.xencraft.block.BlockXenSapling;
@@ -43,6 +45,8 @@ public class XenCraftEventHandler
 		IForgeRegistry<Block> r = event.getRegistry();
 		r.register(withName(new BlockXenOre(), "xen_ore"));
 		r.register(withName(new BlockXenSapling(), "xen_sapling"));
+		r.register(withName(new BlockXenLog(), "xen_log"));
+		r.register(withName(new BlockXenLeaves(), "xen_leaves"));
 		r.register(withName(new BlockXen(), "xen_gem_block"));
 		r.register(withName(new BlockXenstone(true), "dark_xenstone"));
 		r.register(withName(new BlockXen(), "dark_xen_block"));
@@ -69,6 +73,8 @@ public class XenCraftEventHandler
 
 		r.register(new ItemBlock(XenCraftBlocks.XEN_ORE).setRegistryName("xen_ore"));
 		r.register(new ItemBlock(XenCraftBlocks.XEN_SAPLING).setRegistryName("xen_sapling"));
+		r.register(new ItemBlock(XenCraftBlocks.XEN_LOG).setRegistryName("xen_log"));
+		r.register(new ItemBlock(XenCraftBlocks.XEN_LEAVES).setRegistryName("xen_leaves"));
 		r.register(new ItemBlockXen(XenCraftBlocks.XEN_GEM_BLOCK).setRegistryName("xen_gem_block"));
 		r.register(new ItemBlockXen(XenCraftBlocks.DARK_XENSTONE).setRegistryName("dark_xenstone"));
 		r.register(new ItemBlockXen(XenCraftBlocks.DARK_XEN_BLOCK).setRegistryName("dark_xen_block"));

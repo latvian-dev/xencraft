@@ -25,7 +25,7 @@ import java.util.Random;
 public class BlockXenSapling extends BlockBush implements IGrowable
 {
 	public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
-	protected static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 0.8D, 0.9D);
+	public static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 0.8D, 0.9D);
 
 	public BlockXenSapling()
 	{
@@ -36,6 +36,7 @@ public class BlockXenSapling extends BlockBush implements IGrowable
 	}
 
 	@Override
+	@Deprecated
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
 	{
 		return SAPLING_AABB;
@@ -78,7 +79,7 @@ public class BlockXenSapling extends BlockBush implements IGrowable
 			return;
 		}
 
-		WorldGenerator worldgenerator = new WorldGenTrees(true, 4, XenCraftBlocks.DARK_XEN_BLOCK.getDefaultState(), XenCraftBlocks.DARK_XEN_BRICKS.getDefaultState(), false);
+		WorldGenerator worldgenerator = new WorldGenTrees(true, 4, XenCraftBlocks.XEN_LOG.getDefaultState(), XenCraftBlocks.XEN_LEAVES.getDefaultState(), false);
 		world.setBlockState(pos, Blocks.AIR.getDefaultState(), 4);
 
 		if (!worldgenerator.generate(world, rand, pos))

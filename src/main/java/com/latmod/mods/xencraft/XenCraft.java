@@ -55,6 +55,9 @@ public class XenCraft
 	public void onInit(FMLInitializationEvent event)
 	{
 		OreDictionary.registerOre("oreXen", XenCraftItems.XEN_ORE);
+		OreDictionary.registerOre("treeSapling", XenCraftItems.XEN_SAPLING);
+		OreDictionary.registerOre("logWood", XenCraftItems.XEN_LOG);
+		OreDictionary.registerOre("treeLeaves", XenCraftItems.XEN_LEAVES);
 		OreDictionary.registerOre("blockXen", new ItemStack(XenCraftItems.XEN_GEM_BLOCK, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("gemXen", XenCraftItems.XEN_GEM);
 		OreDictionary.registerOre("ingotXen", XenCraftItems.XEN_INGOT);

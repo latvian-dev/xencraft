@@ -1,6 +1,0 @@
-{
-	"parent": "block/cross",
-	"textures": {
-		"cross": "xencraft:blocks/xen_sapling_overlay_1"
-	}
-}

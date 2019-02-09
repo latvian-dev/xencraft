@@ -13,11 +13,6 @@
 			}
 		],
 		"base": [{"model": "xencraft:xen_sapling_base"}],
-		"overlay": [
-			{"model": "xencraft:xen_sapling_overlay_1"},
-			{"model": "xencraft:xen_sapling_overlay_2"},
-			{"model": "xencraft:xen_sapling_overlay_3"},
-			{"model": "xencraft:xen_sapling_overlay_4"}
-		]
+		"overlay": [{"model": "xencraft:xen_sapling_overlay"}]
 	}
 }
