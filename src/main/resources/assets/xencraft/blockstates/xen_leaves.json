@@ -12,7 +12,24 @@
 				}
 			}
 		],
-		"base": [{"model": "xencraft:xen_leaves_base"}],
-		"overlay": [{"model": "xencraft:xen_leaves_overlay"}]
+		"base": [{"model": "minecraft:oak_leaves"}],
+		"overlay": [
+			{"model": "xencraft:xen_leaves_overlay_1"},
+			{"model": "xencraft:xen_leaves_overlay_2"},
+			{"model": "xencraft:xen_leaves_overlay_3"},
+			{"model": "xencraft:xen_leaves_overlay_4"},
+			{"model": "xencraft:xen_leaves_overlay_1", "x": 90},
+			{"model": "xencraft:xen_leaves_overlay_2", "x": 90},
+			{"model": "xencraft:xen_leaves_overlay_3", "x": 90},
+			{"model": "xencraft:xen_leaves_overlay_4", "x": 90},
+			{"model": "xencraft:xen_leaves_overlay_1", "y": 90},
+			{"model": "xencraft:xen_leaves_overlay_2", "y": 90},
+			{"model": "xencraft:xen_leaves_overlay_3", "y": 90},
+			{"model": "xencraft:xen_leaves_overlay_4", "y": 90},
+			{"model": "xencraft:xen_leaves_overlay_1", "x": 90, "y": 90},
+			{"model": "xencraft:xen_leaves_overlay_2", "x": 90, "y": 90},
+			{"model": "xencraft:xen_leaves_overlay_3", "x": 90, "y": 90},
+			{"model": "xencraft:xen_leaves_overlay_4", "x": 90, "y": 90}
+		]
 	}
 }

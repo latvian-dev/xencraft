@@ -31,7 +31,7 @@ public class XenCraft
 	@Mod.Instance(MOD_ID)
 	public static XenCraft INSTANCE;
 
-	@SidedProxy(serverSide = "com.latmod.mods.modularpipes.XenCraftCommon", clientSide = "com.latmod.mods.xencraft.client.XenCraftClient")
+	@SidedProxy(serverSide = "com.latmod.mods.xencraft.XenCraftCommon", clientSide = "com.latmod.mods.xencraft.client.XenCraftClient")
 	public static XenCraftCommon PROXY;
 
 	public static final CreativeTabs TAB = new CreativeTabs(MOD_ID)

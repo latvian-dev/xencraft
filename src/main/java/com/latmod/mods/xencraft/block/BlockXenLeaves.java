@@ -23,6 +23,11 @@ import java.util.Random;
  */
 public class BlockXenLeaves extends BlockLeaves
 {
+	public BlockXenLeaves()
+	{
+		setDefaultState(blockState.getBaseState().withProperty(CHECK_DECAY, false).withProperty(DECAYABLE, true));
+	}
+
 	@Override
 	protected BlockStateContainer createBlockState()
 	{
@@ -65,8 +70,9 @@ public class BlockXenLeaves extends BlockLeaves
 	@Deprecated
 	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess world, BlockPos pos, EnumFacing side)
 	{
-		leavesFancy = true;
-		return super.shouldSideBeRendered(blockState, world, pos, side);
+		//leavesFancy = true;
+		//return super.shouldSideBeRendered(blockState, world, pos, side);
+		return true;
 	}
 
 	@Override
@@ -125,6 +131,6 @@ public class BlockXenLeaves extends BlockLeaves
 	@Deprecated
 	public int getLightValue(IBlockState state)
 	{
-		return XenCraft.PROXY.getCutoutXenLightValue();
+		return XenCraft.PROXY.getXenLightValue(BlockRenderLayer.CUTOUT);
 	}
 }

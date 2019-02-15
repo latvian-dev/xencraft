@@ -44,6 +44,6 @@ public class BlockXenLog extends Block
 	@Deprecated
 	public int getLightValue(IBlockState state)
 	{
-		return XenCraft.PROXY.getCutoutXenLightValue();
+		return XenCraft.PROXY.getXenLightValue(BlockRenderLayer.CUTOUT);
 	}
 }

@@ -80,7 +80,7 @@ public class BlockXen extends Block
 	@Deprecated
 	public int getLightValue(IBlockState state)
 	{
-		return XenCraft.PROXY.getSolidXenLightValue();
+		return XenCraft.PROXY.getXenLightValue(BlockRenderLayer.SOLID);
 	}
 
 	@Override

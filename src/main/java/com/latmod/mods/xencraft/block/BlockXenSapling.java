@@ -30,7 +30,7 @@ public class BlockXenSapling extends BlockBush implements IGrowable
 	public BlockXenSapling()
 	{
 		super(Material.PLANTS);
-		setDefaultState(this.blockState.getBaseState().withProperty(STAGE, 0));
+		setDefaultState(blockState.getBaseState().withProperty(STAGE, 0));
 		setHardness(0F);
 		setSoundType(SoundType.PLANT);
 	}
@@ -55,7 +55,7 @@ public class BlockXenSapling extends BlockBush implements IGrowable
 			}
 			if (world.getLightFromNeighbors(pos.up()) >= 9 && rand.nextInt(7) == 0)
 			{
-				this.grow(world, pos, state, rand);
+				grow(world, pos, state, rand);
 			}
 		}
 	}
@@ -68,7 +68,7 @@ public class BlockXenSapling extends BlockBush implements IGrowable
 		}
 		else
 		{
-			this.generateTree(world, pos, state, rand);
+			generateTree(world, pos, state, rand);
 		}
 	}
 
@@ -103,7 +103,7 @@ public class BlockXenSapling extends BlockBush implements IGrowable
 	@Override
 	public void grow(World world, Random rand, BlockPos pos, IBlockState state)
 	{
-		this.grow(world, pos, state, rand);
+		grow(world, pos, state, rand);
 	}
 
 	@Override
@@ -134,6 +134,6 @@ public class BlockXenSapling extends BlockBush implements IGrowable
 	@Deprecated
 	public int getLightValue(IBlockState state)
 	{
-		return XenCraft.PROXY.getCutoutXenLightValue();
+		return XenCraft.PROXY.getXenLightValue(BlockRenderLayer.CUTOUT);
 	}
 }

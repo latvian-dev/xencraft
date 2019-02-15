@@ -1,0 +1,6 @@
+{
+	"parent": "xencraft:block/xen_leaves_overlay",
+	"textures": {
+		"texture": "xencraft:blocks/xen_leaves_overlay_3"
+	}
+}

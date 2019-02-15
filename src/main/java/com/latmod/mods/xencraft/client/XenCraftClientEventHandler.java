@@ -11,6 +11,8 @@ import net.minecraft.block.BlockLeaves;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.item.Item;
+import net.minecraft.world.ColorizerFoliage;
+import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -76,8 +78,7 @@ public class XenCraftClientEventHandler
 		event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> tintIndex == 0 ? EnumXenColor.getBrightColor(pos).getColor() : 0xFFFFFFFF,
 				XenCraftBlocks.XEN_ORE,
 				XenCraftBlocks.XEN_SAPLING,
-				XenCraftBlocks.XEN_LOG,
-				XenCraftBlocks.XEN_LEAVES);
+				XenCraftBlocks.XEN_LOG);
 
 		event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> tintIndex == 0 ? state.getValue(BlockXen.COLOR).getColor() : 0xFFFFFFFF,
 				XenCraftBlocks.XEN_GEM_BLOCK,
@@ -93,6 +94,18 @@ public class XenCraftClientEventHandler
 				XenCraftBlocks.LIGHT_XEN_PLATE,
 				XenCraftBlocks.LIGHT_XEN_TILES,
 				XenCraftBlocks.LIGHT_XEN_SMALL_TILES);
+
+		event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> {
+			if (tintIndex == 0)
+			{
+				return world != null && pos != null ? BiomeColorHelper.getFoliageColorAtPos(world, pos) : ColorizerFoliage.getFoliageColorBasic();
+			}
+			else if (tintIndex == 1)
+			{
+				return EnumXenColor.getBrightColor(pos).getColor();
+			}
+			return 0xFFFFFFFF;
+		}, XenCraftBlocks.XEN_LEAVES);
 	}
 
 	@SubscribeEvent
@@ -101,8 +114,7 @@ public class XenCraftClientEventHandler
 		event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? Color.HSBtoRGB((System.currentTimeMillis() % 10000L) / 10000F, 0.7F, 0.9F) : 0xFFFFFFFF,
 				XenCraftItems.XEN_ORE,
 				XenCraftItems.XEN_SAPLING,
-				XenCraftItems.XEN_LOG,
-				XenCraftItems.XEN_LEAVES);
+				XenCraftItems.XEN_LOG);
 
 		event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? EnumXenColor.byMeta(stack.getMetadata()).getColor() : 0xFFFFFFFF,
 				XenCraftItems.XEN_GEM_BLOCK,
@@ -118,5 +130,17 @@ public class XenCraftClientEventHandler
 				XenCraftItems.LIGHT_XEN_PLATE,
 				XenCraftItems.LIGHT_XEN_TILES,
 				XenCraftItems.LIGHT_XEN_SMALL_TILES);
+
+		event.getItemColors().registerItemColorHandler((stack, tintIndex) -> {
+			if (tintIndex == 0)
+			{
+				return ColorizerFoliage.getFoliageColorBasic();
+			}
+			else if (tintIndex == 1)
+			{
+				return Color.HSBtoRGB((System.currentTimeMillis() % 10000L) / 10000F, 0.7F, 0.9F);
+			}
+			return 0xFFFFFFFF;
+		}, XenCraftItems.XEN_LEAVES);
 	}
 }

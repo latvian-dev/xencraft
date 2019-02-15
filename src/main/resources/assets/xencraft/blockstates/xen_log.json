@@ -6,8 +6,8 @@
 				"model": "forge:multi-layer",
 				"transform": "forge:default-block",
 				"custom": {
-					"base": "minecraft:dark_oak_log#axis=none",
-					"Solid": "minecraft:dark_oak_log#axis=none",
+					"base": "minecraft:oak_log#axis=none",
+					"Solid": "minecraft:oak_log#axis=none",
 					"Cutout": "xencraft:xen_log#overlay"
 				}
 			}
