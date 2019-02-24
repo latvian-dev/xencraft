@@ -12,6 +12,6 @@ public class XenCraftClient extends XenCraftCommon
 	@Override
 	public int getXenLightValue(BlockRenderLayer layer)
 	{
-		return MinecraftForgeClient.getRenderLayer() == layer ? 15 : 0;
+		return MinecraftForgeClient.getRenderLayer() == layer ? XenCraftClientConfig.general.xen_light_value : 0;
 	}
 }
