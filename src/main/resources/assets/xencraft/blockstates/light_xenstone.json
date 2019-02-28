@@ -1,5 +1,5 @@
 {
 	"variants": {
-		"normal": [{"model": "xencraft:light/xenstone"}]
+		"normal": {"model": "xencraft:light_xenstone"}
 	}
 }

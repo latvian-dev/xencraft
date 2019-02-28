@@ -15,22 +15,12 @@ public class XenCraftItems
 	public static final Item XEN_SAPLING = Items.AIR;
 	public static final Item XEN_LOG = Items.AIR;
 	public static final Item XEN_LEAVES = Items.AIR;
+	public static final Item TABLE = Items.AIR;
 	public static final Item XEN_GEM_BLOCK = Items.AIR;
 	public static final Item DARK_XENSTONE = Items.AIR;
-	public static final Item DARK_XEN_BLOCK = Items.AIR;
-	public static final Item DARK_XEN_BRICKS = Items.AIR;
-	public static final Item DARK_XEN_SMALL_BRICKS = Items.AIR;
-	public static final Item DARK_XEN_PLATE = Items.AIR;
-	public static final Item DARK_XEN_TILES = Items.AIR;
-	public static final Item DARK_XEN_SMALL_TILES = Items.AIR;
 	public static final Item LIGHT_XENSTONE = Items.AIR;
-	public static final Item LIGHT_XEN_BLOCK = Items.AIR;
-	public static final Item LIGHT_XEN_BRICKS = Items.AIR;
-	public static final Item LIGHT_XEN_SMALL_BRICKS = Items.AIR;
-	public static final Item LIGHT_XEN_PLATE = Items.AIR;
-	public static final Item LIGHT_XEN_TILES = Items.AIR;
-	public static final Item LIGHT_XEN_SMALL_TILES = Items.AIR;
 
 	public static final Item XEN_GEM = Items.AIR;
 	public static final Item XEN_INGOT = Items.AIR;
+	public static final Item TABLET = Items.AIR;
 }

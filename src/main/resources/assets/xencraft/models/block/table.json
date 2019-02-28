@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"down": "xencraft:blocks/table_top",
+		"up": "xencraft:blocks/table_top",
+		"north": "xencraft:blocks/table_side",
+		"south": "xencraft:blocks/table_side",
+		"west": "xencraft:blocks/table_side",
+		"east": "xencraft:blocks/table_side",
+		"particle": "xencraft:blocks/table_side"
+	}
+}

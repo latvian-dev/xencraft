@@ -1,6 +1,5 @@
 package com.latmod.mods.xencraft.block;
 
-import com.latmod.mods.xencraft.XenCraft;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
@@ -16,6 +15,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
@@ -32,6 +33,7 @@ public class BlockXenSapling extends BlockBush implements IGrowable
 		super(Material.PLANTS);
 		setDefaultState(blockState.getBaseState().withProperty(STAGE, 0));
 		setHardness(0F);
+		setLightLevel(0.1F);
 		setSoundType(SoundType.PLANT);
 	}
 
@@ -132,8 +134,17 @@ public class BlockXenSapling extends BlockBush implements IGrowable
 
 	@Override
 	@Deprecated
-	public int getLightValue(IBlockState state)
+	@SideOnly(Side.CLIENT)
+	public int getPackedLightmapCoords(IBlockState state, IBlockAccess source, BlockPos pos)
 	{
-		return XenCraft.PROXY.getXenLightValue(BlockRenderLayer.CUTOUT);
+		return BlockXenBase.getPackedLightmapCoords(source, pos, BlockRenderLayer.CUTOUT);
+	}
+
+	@Override
+	@Deprecated
+	@SideOnly(Side.CLIENT)
+	public float getAmbientOcclusionLightValue(IBlockState state)
+	{
+		return 0F;
 	}
 }

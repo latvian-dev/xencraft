@@ -11,22 +11,22 @@ import javax.annotation.Nullable;
  */
 public enum EnumXenColor implements IStringSerializable
 {
-	WHITE("white", 0, MapColor.WHITE_STAINED_HARDENED_CLAY, 0xFFFFFF),
-	GRAY("gray", 1, MapColor.GRAY, 0x707070),
-	BLACK("black", 2, MapColor.BLACK, 0x161616),
-	BROWN("brown", 3, MapColor.BROWN, 0x723D14),
-	RED("red", 4, MapColor.RED, 0xFF0000),
-	ORANGE("orange", 5, MapColor.ADOBE, 0xFF8C00),
-	YELLOW("yellow", 6, MapColor.YELLOW, 0xFFD800),
-	LIME("lime", 7, MapColor.LIME, 0xB6FF00),
-	GREEN("green", 8, MapColor.GREEN, 0x00FF00),
-	TEAL("teal", 9, MapColor.DIAMOND, 0x00FFCB),
-	CYAN("cyan", 10, MapColor.CYAN, 0x00FFFF),
-	SKY("sky", 11, MapColor.LIGHT_BLUE, 0x21C3FF),
-	BLUE("blue", 12, MapColor.BLUE, 0x0052FF),
-	PURPLE("purple", 13, MapColor.PURPLE, 0xAA00FF),
-	MAGENTA("magenta", 14, MapColor.MAGENTA, 0xFF00FF),
-	PINK("pink", 15, MapColor.PINK, 0xFF75B5);
+	WHITE("white", 0, MapColor.WHITE_STAINED_HARDENED_CLAY),
+	GRAY("gray", 1, MapColor.GRAY),
+	BLACK("black", 2, MapColor.BLACK),
+	BROWN("brown", 3, MapColor.BROWN),
+	RED("red", 4, MapColor.RED),
+	ORANGE("orange", 5, MapColor.ADOBE),
+	YELLOW("yellow", 6, MapColor.YELLOW),
+	LIME("lime", 7, MapColor.LIME),
+	GREEN("green", 8, MapColor.GREEN),
+	TEAL("teal", 9, MapColor.DIAMOND),
+	CYAN("cyan", 10, MapColor.CYAN),
+	SKY("sky", 11, MapColor.LIGHT_BLUE),
+	BLUE("blue", 12, MapColor.BLUE),
+	PURPLE("purple", 13, MapColor.PURPLE),
+	MAGENTA("magenta", 14, MapColor.MAGENTA),
+	PINK("pink", 15, MapColor.PINK);
 
 	public static final EnumXenColor[] VALUES = values();
 	public static final EnumXenColor[] BRIGHT_COLORS = {RED, ORANGE, YELLOW, LIME, GREEN, TEAL, CYAN, SKY, BLUE, PURPLE, MAGENTA, PINK};
@@ -45,14 +45,12 @@ public enum EnumXenColor implements IStringSerializable
 	private final String name;
 	private final int metadata;
 	private final MapColor mapColor;
-	private final int color;
 
-	EnumXenColor(String n, int i, MapColor m, int c)
+	EnumXenColor(String n, int i, MapColor m)
 	{
 		name = n;
 		metadata = i;
 		mapColor = m;
-		color = 0xFF000000 | c;
 	}
 
 	@Override
@@ -69,10 +67,5 @@ public enum EnumXenColor implements IStringSerializable
 	public MapColor getMapColor()
 	{
 		return mapColor;
-	}
-
-	public int getColor()
-	{
-		return color;
 	}
 }

@@ -1,6 +1,5 @@
 package com.latmod.mods.xencraft.block;
 
-import com.latmod.mods.xencraft.XenCraft;
 import com.latmod.mods.xencraft.item.XenCraftItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -9,7 +8,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
@@ -22,6 +24,7 @@ public class BlockXenOre extends Block
 	{
 		super(Material.ROCK);
 		setHardness(2F);
+		setLightLevel(0.1F);
 		setHarvestLevel("pickaxe", 0);
 	}
 
@@ -40,7 +43,7 @@ public class BlockXenOre extends Block
 	@Override
 	public int quantityDropped(Random random)
 	{
-		return 4 + random.nextInt(2);
+		return 1;
 	}
 
 	@Override
@@ -62,6 +65,12 @@ public class BlockXenOre extends Block
 	}
 
 	@Override
+	public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, net.minecraft.entity.EntityLiving.SpawnPlacementType type)
+	{
+		return false;
+	}
+
+	@Override
 	public boolean canRenderInLayer(IBlockState state, BlockRenderLayer layer)
 	{
 		return layer == BlockRenderLayer.SOLID || layer == BlockRenderLayer.CUTOUT;
@@ -69,8 +78,17 @@ public class BlockXenOre extends Block
 
 	@Override
 	@Deprecated
-	public int getLightValue(IBlockState state)
+	@SideOnly(Side.CLIENT)
+	public int getPackedLightmapCoords(IBlockState state, IBlockAccess source, BlockPos pos)
 	{
-		return XenCraft.PROXY.getXenLightValue(BlockRenderLayer.CUTOUT);
+		return BlockXenBase.getPackedLightmapCoords(source, pos, BlockRenderLayer.CUTOUT);
+	}
+
+	@Override
+	@Deprecated
+	@SideOnly(Side.CLIENT)
+	public float getAmbientOcclusionLightValue(IBlockState state)
+	{
+		return 0F;
 	}
 }

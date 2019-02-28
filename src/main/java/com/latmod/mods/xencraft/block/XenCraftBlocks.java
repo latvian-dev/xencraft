@@ -15,19 +15,8 @@ public class XenCraftBlocks
 	public static final Block XEN_SAPLING = Blocks.AIR;
 	public static final Block XEN_LOG = Blocks.AIR;
 	public static final Block XEN_LEAVES = Blocks.AIR;
+	public static final Block TABLE = Blocks.AIR;
 	public static final Block XEN_GEM_BLOCK = Blocks.AIR;
 	public static final Block DARK_XENSTONE = Blocks.AIR;
-	public static final Block DARK_XEN_BLOCK = Blocks.AIR;
-	public static final Block DARK_XEN_BRICKS = Blocks.AIR;
-	public static final Block DARK_XEN_SMALL_BRICKS = Blocks.AIR;
-	public static final Block DARK_XEN_PLATE = Blocks.AIR;
-	public static final Block DARK_XEN_TILES = Blocks.AIR;
-	public static final Block DARK_XEN_SMALL_TILES = Blocks.AIR;
 	public static final Block LIGHT_XENSTONE = Blocks.AIR;
-	public static final Block LIGHT_XEN_BLOCK = Blocks.AIR;
-	public static final Block LIGHT_XEN_BRICKS = Blocks.AIR;
-	public static final Block LIGHT_XEN_SMALL_BRICKS = Blocks.AIR;
-	public static final Block LIGHT_XEN_PLATE = Blocks.AIR;
-	public static final Block LIGHT_XEN_TILES = Blocks.AIR;
-	public static final Block LIGHT_XEN_SMALL_TILES = Blocks.AIR;
 }

@@ -1,0 +1,17 @@
+{
+	"forge_marker": 1,
+	"variants": {
+		"normal": [
+			{
+				"model": "forge:multi-layer",
+				"transform": "forge:default-block",
+				"custom": {
+					"base": "xencraft:xen#normal",
+					"Solid": "xencraft:xen#normal",
+					"Cutout": "xencraft:light_xen_hex#overlay"
+				}
+			}
+		],
+		"overlay": [{"model": "xencraft:light/hex"}]
+	}
+}

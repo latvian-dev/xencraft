@@ -6,10 +6,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import org.apache.logging.log4j.LogManager;
@@ -31,9 +31,6 @@ public class XenCraft
 	@Mod.Instance(MOD_ID)
 	public static XenCraft INSTANCE;
 
-	@SidedProxy(serverSide = "com.latmod.mods.xencraft.XenCraftCommon", clientSide = "com.latmod.mods.xencraft.client.XenCraftClient")
-	public static XenCraftCommon PROXY;
-
 	public static final CreativeTabs TAB = new CreativeTabs(MOD_ID)
 	{
 		@Override
@@ -46,9 +43,9 @@ public class XenCraft
 	@EventHandler
 	public void onPreInit(FMLPreInitializationEvent event)
 	{
+		XenCraftConfig.sync();
 		GameRegistry.registerWorldGenerator(new XenCraftWorldGenerator(), 0);
-		//NetworkRegistry.INSTANCE.registerGuiHandler(this, XenCraftGuiHandler.INSTANCE);
-		//XenCraftNet.init();
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new XenCraftGuiHandler());
 	}
 
 	@EventHandler

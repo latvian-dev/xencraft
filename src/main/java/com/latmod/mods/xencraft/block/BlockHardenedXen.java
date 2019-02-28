@@ -8,9 +8,9 @@ import net.minecraft.world.IBlockAccess;
 /**
  * @author LatvianModder
  */
-public class BlockXenPlate extends BlockXen
+public class BlockHardenedXen extends BlockXenBase
 {
-	public BlockXenPlate()
+	public BlockHardenedXen()
 	{
 		setResistance(10000000F);
 	}

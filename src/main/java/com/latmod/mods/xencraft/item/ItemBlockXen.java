@@ -1,22 +1,20 @@
 package com.latmod.mods.xencraft.item;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.ItemBlock;
+import com.latmod.mods.xencraft.block.EnumXenPattern;
+import com.latmod.mods.xencraft.block.EnumXenType;
 
 /**
  * @author LatvianModder
  */
-public class ItemBlockXen extends ItemBlock
+public class ItemBlockXen extends ItemBlockXenBase
 {
-	public ItemBlockXen(Block block)
-	{
-		super(block);
-		setHasSubtypes(true);
-	}
+	public final EnumXenType type;
+	public final EnumXenPattern pattern;
 
-	@Override
-	public int getMetadata(int meta)
+	public ItemBlockXen(EnumXenType t, EnumXenPattern p)
 	{
-		return meta;
+		super(p.blocks[t.ordinal()]);
+		type = t;
+		pattern = p;
 	}
 }

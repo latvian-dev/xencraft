@@ -1,12 +1,25 @@
 # Item Group
 itemGroup.xencraft=XenCraft
 
+xencraft=XenCraft Common
+xencraft.general=General
+xencraft.general.ores_per_chunk=Xen Ores per Chunk
+xencraft.general.ores_size=Xen Ore Cluser Size
+xencraft.general.ores_min_y=Xen Ore Min Y
+xencraft.general.ores_max_y=Xen Ore Max Y
+
+xencraft_client=XenCraft Client
+xencraft.general.xen_light_value=Xen Light Value
+xencraft.colors=Colors
+
 # Blocks
 tile.xencraft.xen_ore.name=Xen Ore
 tile.xencraft.xen_sapling.name=Xen Sapling
 tile.xencraft.xen_log.name=Xen Wood
 tile.xencraft.xen_leaves.name=Xen Leaves
+tile.xencraft.table.name=Xen Table
 tile.xencraft.xen_gem_block.name=Xen Gem Block
+
 tile.xencraft.dark_xenstone.name=Dark Xenstone
 tile.xencraft.dark_xen_block.name=Dark Xen Block
 tile.xencraft.dark_xen_bricks.name=Dark Xen Bricks
@@ -14,6 +27,8 @@ tile.xencraft.dark_xen_small_bricks.name=Dark Xen Small Bricks
 tile.xencraft.dark_xen_plate.name=Dark Xen Plate
 tile.xencraft.dark_xen_tiles.name=Dark Xen Tiles
 tile.xencraft.dark_xen_small_tiles.name=Dark Xen Small Tiles
+tile.xencraft.dark_xen_hex.name=Dark Xen Hex
+
 tile.xencraft.light_xenstone.name=Light Xenstone
 tile.xencraft.light_xen_block.name=Light Xen Block
 tile.xencraft.light_xen_bricks.name=Light Xen Bricks
@@ -21,10 +36,12 @@ tile.xencraft.light_xen_small_bricks.name=Light Xen Small Bricks
 tile.xencraft.light_xen_plate.name=Light Xen Plate
 tile.xencraft.light_xen_tiles.name=Light Xen Tiles
 tile.xencraft.light_xen_small_tiles.name=Light Xen Small Tiles
+tile.xencraft.light_xen_hex.name=Light Xen Hex
 
 # Items
 item.xencraft.xen_gem.name=Xen
 item.xencraft.xen_ingot.name=Xen Ingot
+item.xencraft.tablet.name=Xen Tablet
 
 xencraft.color.white=White
 xencraft.color.gray=Gray

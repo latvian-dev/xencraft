@@ -1,9 +1,11 @@
 package com.latmod.mods.xencraft.client;
 
 import com.latmod.mods.xencraft.XenCraft;
-import com.latmod.mods.xencraft.block.BlockXen;
+import com.latmod.mods.xencraft.block.BlockXenBase;
 import com.latmod.mods.xencraft.block.BlockXenSapling;
 import com.latmod.mods.xencraft.block.EnumXenColor;
+import com.latmod.mods.xencraft.block.EnumXenPattern;
+import com.latmod.mods.xencraft.block.EnumXenType;
 import com.latmod.mods.xencraft.block.XenCraftBlocks;
 import com.latmod.mods.xencraft.item.XenCraftItems;
 import net.minecraft.block.Block;
@@ -21,6 +23,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author LatvianModder
@@ -35,7 +39,7 @@ public class XenCraftClientEventHandler
 
 	private static void addXenModel(Block block, Item item)
 	{
-		ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockXen.COLOR).build());
+		ModelLoader.setCustomStateMapper(block, new StateMap.Builder().ignore(BlockXenBase.COLOR).build());
 
 		for (EnumXenColor color : EnumXenColor.VALUES)
 		{
@@ -52,48 +56,49 @@ public class XenCraftClientEventHandler
 		addModel(XenCraftItems.XEN_LOG, "normal");
 		addModel(XenCraftItems.XEN_LEAVES, "normal");
 		ModelLoader.setCustomStateMapper(XenCraftBlocks.XEN_LEAVES, new StateMap.Builder().ignore(BlockLeaves.CHECK_DECAY, BlockLeaves.DECAYABLE).build());
+		addModel(XenCraftItems.TABLE, "normal");
 		addXenModel(XenCraftBlocks.XEN_GEM_BLOCK, XenCraftItems.XEN_GEM_BLOCK);
 		addModel(XenCraftItems.DARK_XENSTONE, "normal");
-		addXenModel(XenCraftBlocks.DARK_XEN_BLOCK, XenCraftItems.DARK_XEN_BLOCK);
-		addXenModel(XenCraftBlocks.DARK_XEN_BRICKS, XenCraftItems.DARK_XEN_BRICKS);
-		addXenModel(XenCraftBlocks.DARK_XEN_SMALL_BRICKS, XenCraftItems.DARK_XEN_SMALL_BRICKS);
-		addXenModel(XenCraftBlocks.DARK_XEN_PLATE, XenCraftItems.DARK_XEN_PLATE);
-		addXenModel(XenCraftBlocks.DARK_XEN_TILES, XenCraftItems.DARK_XEN_TILES);
-		addXenModel(XenCraftBlocks.DARK_XEN_SMALL_TILES, XenCraftItems.DARK_XEN_SMALL_TILES);
 		addModel(XenCraftItems.LIGHT_XENSTONE, "normal");
-		addXenModel(XenCraftBlocks.LIGHT_XEN_BLOCK, XenCraftItems.LIGHT_XEN_BLOCK);
-		addXenModel(XenCraftBlocks.LIGHT_XEN_BRICKS, XenCraftItems.LIGHT_XEN_BRICKS);
-		addXenModel(XenCraftBlocks.LIGHT_XEN_SMALL_BRICKS, XenCraftItems.LIGHT_XEN_SMALL_BRICKS);
-		addXenModel(XenCraftBlocks.LIGHT_XEN_PLATE, XenCraftItems.LIGHT_XEN_PLATE);
-		addXenModel(XenCraftBlocks.LIGHT_XEN_TILES, XenCraftItems.LIGHT_XEN_TILES);
-		addXenModel(XenCraftBlocks.LIGHT_XEN_SMALL_TILES, XenCraftItems.LIGHT_XEN_SMALL_TILES);
+
+		for (EnumXenType type : EnumXenType.VALUES)
+		{
+			for (EnumXenPattern pattern : EnumXenPattern.VALUES)
+			{
+				addXenModel(pattern.blocks[type.ordinal()], pattern.items[type.ordinal()]);
+			}
+		}
 
 		addModel(XenCraftItems.XEN_GEM, "inventory");
 		addModel(XenCraftItems.XEN_INGOT, "inventory");
+		addModel(XenCraftItems.TABLET, "inventory");
+	}
+
+	private static int col(EnumXenColor col)
+	{
+		return XenCraftClientConfig.colors.getColor(col);
 	}
 
 	@SubscribeEvent
 	public static void registerBlockColors(ColorHandlerEvent.Block event)
 	{
-		event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> tintIndex == 0 ? EnumXenColor.getBrightColor(pos).getColor() : 0xFFFFFFFF,
+		event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> tintIndex == 0 ? col(EnumXenColor.getBrightColor(pos)) : 0xFFFFFFFF,
 				XenCraftBlocks.XEN_ORE,
 				XenCraftBlocks.XEN_SAPLING,
 				XenCraftBlocks.XEN_LOG);
 
-		event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> tintIndex == 0 ? state.getValue(BlockXen.COLOR).getColor() : 0xFFFFFFFF,
-				XenCraftBlocks.XEN_GEM_BLOCK,
-				XenCraftBlocks.DARK_XEN_BLOCK,
-				XenCraftBlocks.DARK_XEN_BRICKS,
-				XenCraftBlocks.DARK_XEN_SMALL_BRICKS,
-				XenCraftBlocks.DARK_XEN_PLATE,
-				XenCraftBlocks.DARK_XEN_TILES,
-				XenCraftBlocks.DARK_XEN_SMALL_TILES,
-				XenCraftBlocks.LIGHT_XEN_BLOCK,
-				XenCraftBlocks.LIGHT_XEN_BRICKS,
-				XenCraftBlocks.LIGHT_XEN_SMALL_BRICKS,
-				XenCraftBlocks.LIGHT_XEN_PLATE,
-				XenCraftBlocks.LIGHT_XEN_TILES,
-				XenCraftBlocks.LIGHT_XEN_SMALL_TILES);
+		List<Block> blocks = new ArrayList<>();
+		blocks.add(XenCraftBlocks.XEN_GEM_BLOCK);
+
+		for (EnumXenType type : EnumXenType.VALUES)
+		{
+			for (EnumXenPattern pattern : EnumXenPattern.VALUES)
+			{
+				blocks.add(pattern.blocks[type.ordinal()]);
+			}
+		}
+
+		event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> tintIndex == 0 ? col(state.getValue(BlockXenBase.COLOR)) : 0xFFFFFFFF, blocks.toArray(new Block[0]));
 
 		event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> {
 			if (tintIndex == 0)
@@ -102,7 +107,7 @@ public class XenCraftClientEventHandler
 			}
 			else if (tintIndex == 1)
 			{
-				return EnumXenColor.getBrightColor(pos).getColor();
+				return col(EnumXenColor.getBrightColor(pos));
 			}
 			return 0xFFFFFFFF;
 		}, XenCraftBlocks.XEN_LEAVES);
@@ -116,20 +121,18 @@ public class XenCraftClientEventHandler
 				XenCraftItems.XEN_SAPLING,
 				XenCraftItems.XEN_LOG);
 
-		event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? EnumXenColor.byMeta(stack.getMetadata()).getColor() : 0xFFFFFFFF,
-				XenCraftItems.XEN_GEM_BLOCK,
-				XenCraftItems.DARK_XEN_BLOCK,
-				XenCraftItems.DARK_XEN_BRICKS,
-				XenCraftItems.DARK_XEN_SMALL_BRICKS,
-				XenCraftItems.DARK_XEN_PLATE,
-				XenCraftItems.DARK_XEN_TILES,
-				XenCraftItems.DARK_XEN_SMALL_TILES,
-				XenCraftItems.LIGHT_XEN_BLOCK,
-				XenCraftItems.LIGHT_XEN_BRICKS,
-				XenCraftItems.LIGHT_XEN_SMALL_BRICKS,
-				XenCraftItems.LIGHT_XEN_PLATE,
-				XenCraftItems.LIGHT_XEN_TILES,
-				XenCraftItems.LIGHT_XEN_SMALL_TILES);
+		List<Item> items = new ArrayList<>();
+		items.add(XenCraftItems.XEN_GEM_BLOCK);
+
+		for (EnumXenType type : EnumXenType.VALUES)
+		{
+			for (EnumXenPattern pattern : EnumXenPattern.VALUES)
+			{
+				items.add(pattern.items[type.ordinal()]);
+			}
+		}
+
+		event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? col(EnumXenColor.byMeta(stack.getMetadata())) : 0xFFFFFFFF, items.toArray(new Item[0]));
 
 		event.getItemColors().registerItemColorHandler((stack, tintIndex) -> {
 			if (tintIndex == 0)
