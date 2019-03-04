@@ -14,6 +14,7 @@ import com.latmod.mods.xencraft.block.TileXenTable;
 import com.latmod.mods.xencraft.block.XenCraftBlocks;
 import com.latmod.mods.xencraft.item.ItemBlockXen;
 import com.latmod.mods.xencraft.item.ItemBlockXenBase;
+import com.latmod.mods.xencraft.item.ItemBlockXenstone;
 import com.latmod.mods.xencraft.item.ItemXenTablet;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -87,8 +88,8 @@ public class XenCraftEventHandler
 		r.register(new ItemBlock(XenCraftBlocks.XEN_LEAVES).setRegistryName("xen_leaves"));
 		r.register(new ItemBlock(XenCraftBlocks.TABLE).setRegistryName("table"));
 		r.register(new ItemBlockXenBase(XenCraftBlocks.XEN_GEM_BLOCK).setRegistryName("xen_gem_block"));
-		r.register(new ItemBlock(XenCraftBlocks.DARK_XENSTONE).setRegistryName("dark_xenstone"));
-		r.register(new ItemBlock(XenCraftBlocks.LIGHT_XENSTONE).setRegistryName("light_xenstone"));
+		r.register(new ItemBlockXenstone(XenCraftBlocks.DARK_XENSTONE).setRegistryName("dark_xenstone"));
+		r.register(new ItemBlockXenstone(XenCraftBlocks.LIGHT_XENSTONE).setRegistryName("light_xenstone"));
 
 		for (EnumXenType type : EnumXenType.VALUES)
 		{

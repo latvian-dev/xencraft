@@ -1,15 +1,18 @@
 package com.latmod.mods.xencraft.block;
 
 import com.latmod.mods.xencraft.item.ItemBlockXen;
+import com.latmod.mods.xencraft.item.ItemBlockXenstone;
 import com.latmod.mods.xencraft.item.XenCraftItems;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.ItemHandlerHelper;
 
+import javax.annotation.Nullable;
 import java.util.Arrays;
 
 /**
@@ -18,8 +21,9 @@ import java.util.Arrays;
 public class TileXenTable extends TileEntity implements IItemHandlerModifiable
 {
 	public ItemStack[] items = new ItemStack[2];
+	public EnumXenType type = EnumXenType.DARK;
+	public EnumXenPattern pattern = EnumXenPattern.BLOCK;
 	public EnumXenColor color = EnumXenColor.WHITE;
-	public EnumXenPattern type = EnumXenPattern.BLOCK;
 
 	public TileXenTable()
 	{
@@ -38,8 +42,9 @@ public class TileXenTable extends TileEntity implements IItemHandlerModifiable
 			nbt.setTag("output", items[1].serializeNBT());
 		}
 
+		nbt.setByte("type", (byte) type.ordinal());
+		nbt.setByte("pattern", (byte) pattern.ordinal());
 		nbt.setByte("color", (byte) color.ordinal());
-		nbt.setByte("pattern", (byte) type.ordinal());
 	}
 
 	public void readData(NBTTagCompound nbt)
@@ -58,8 +63,22 @@ public class TileXenTable extends TileEntity implements IItemHandlerModifiable
 			items[1] = ItemStack.EMPTY;
 		}
 
+		type = EnumXenType.VALUES[nbt.getByte("type")];
+		pattern = EnumXenPattern.VALUES[nbt.getByte("pattern")];
 		color = EnumXenColor.VALUES[nbt.getByte("color")];
-		type = EnumXenPattern.VALUES[nbt.getByte("pattern")];
+	}
+
+	@Override
+	public boolean hasCapability(net.minecraftforge.common.capabilities.Capability<?> capability, @Nullable net.minecraft.util.EnumFacing facing)
+	{
+		return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY || super.hasCapability(capability, facing);
+	}
+
+	@Override
+	@Nullable
+	public <T> T getCapability(net.minecraftforge.common.capabilities.Capability<T> capability, @Nullable net.minecraft.util.EnumFacing facing)
+	{
+		return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY ? (T) this : super.getCapability(capability, facing);
 	}
 
 	@Override
@@ -220,7 +239,7 @@ public class TileXenTable extends TileEntity implements IItemHandlerModifiable
 		if (slot == 0)
 		{
 			Item item = stack.getItem();
-			return item == XenCraftItems.DARK_XENSTONE || item == XenCraftItems.LIGHT_XENSTONE || item == XenCraftItems.XEN_GEM_BLOCK || item instanceof ItemBlockXen;
+			return item == XenCraftItems.XEN_GEM_BLOCK || item instanceof ItemBlockXenstone || item instanceof ItemBlockXen;
 		}
 
 		return false;
@@ -235,24 +254,14 @@ public class TileXenTable extends TileEntity implements IItemHandlerModifiable
 
 		Item item = items[0].getItem();
 
-		if (item == XenCraftItems.DARK_XENSTONE)
+		if (item == XenCraftItems.XEN_GEM_BLOCK)
 		{
-			items[1] = items[0];
+			items[1] = new ItemStack(XenCraftItems.XEN_GEM_BLOCK, items[0].getCount(), color.getMetadata());
 			items[0] = ItemStack.EMPTY;
 		}
-		else if (item == XenCraftItems.LIGHT_XENSTONE)
+		else if (item instanceof ItemBlockXenstone || item instanceof ItemBlockXen)
 		{
-			items[1] = items[0];
-			items[0] = ItemStack.EMPTY;
-		}
-		else if (item == XenCraftItems.XEN_GEM_BLOCK)
-		{
-			items[1] = items[0];
-			items[0] = ItemStack.EMPTY;
-		}
-		else if (item instanceof ItemBlockXen)
-		{
-			items[1] = items[0];
+			items[1] = new ItemStack(pattern.items[type.ordinal()], items[0].getCount(), color.getMetadata());
 			items[0] = ItemStack.EMPTY;
 		}
 

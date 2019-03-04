@@ -1,5 +1,8 @@
 package com.latmod.mods.xencraft.gui;
 
+import com.latmod.mods.xencraft.block.EnumXenColor;
+import com.latmod.mods.xencraft.block.EnumXenPattern;
+import com.latmod.mods.xencraft.block.EnumXenType;
 import com.latmod.mods.xencraft.block.TileXenTable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -17,20 +20,20 @@ public class ContainerXenTable extends Container
 	public ContainerXenTable(TileXenTable t, EntityPlayer p)
 	{
 		table = t;
-		addSlotToContainer(new SlotItemHandler(table, 0, 98, 62));
-		addSlotToContainer(new SlotItemHandler(table, 1, 144, 62));
+		addSlotToContainer(new SlotItemHandler(table, 0, 93, 54));
+		addSlotToContainer(new SlotItemHandler(table, 1, 139, 54));
 
 		for (int k = 0; k < 3; ++k)
 		{
 			for (int i1 = 0; i1 < 9; ++i1)
 			{
-				addSlotToContainer(new Slot(p.inventory, i1 + k * 9 + 9, 8 + i1 * 18, 96 + k * 18));
+				addSlotToContainer(new Slot(p.inventory, i1 + k * 9 + 9, 8 + i1 * 18, 84 + k * 18));
 			}
 		}
 
 		for (int l = 0; l < 9; ++l)
 		{
-			addSlotToContainer(new Slot(p.inventory, l, 8 + l * 18, 154));
+			addSlotToContainer(new Slot(p.inventory, l, 8 + l * 18, 142));
 		}
 	}
 
@@ -79,7 +82,25 @@ public class ContainerXenTable extends Container
 	@Override
 	public boolean enchantItem(EntityPlayer player, int id)
 	{
-		return id == 0;
+		if (id >= 0 && id < 16)
+		{
+			table.color = EnumXenColor.byMeta(id);
+			table.markDirty();
+			return true;
+		}
+		else if (id == 16)
+		{
+			table.type = EnumXenType.VALUES[(table.type.ordinal() + 1) % EnumXenType.VALUES.length];
+			table.markDirty();
+			return true;
+		}
+		else if (id == 17)
+		{
+			table.pattern = EnumXenPattern.VALUES[(table.pattern.ordinal() + 1) % EnumXenPattern.VALUES.length];
+			table.markDirty();
+			return true;
+		}
 
+		return false;
 	}
 }

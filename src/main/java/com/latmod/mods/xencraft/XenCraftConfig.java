@@ -6,12 +6,11 @@ import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.relauncher.Side;
 
 /**
  * @author LatvianModder
  */
-@Mod.EventBusSubscriber(modid = XenCraft.MOD_ID, value = Side.CLIENT)
+@Mod.EventBusSubscriber(modid = XenCraft.MOD_ID)
 @Config(modid = XenCraft.MOD_ID, category = "")
 public class XenCraftConfig
 {

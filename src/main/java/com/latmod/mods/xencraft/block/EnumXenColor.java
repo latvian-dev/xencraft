@@ -45,12 +45,14 @@ public enum EnumXenColor implements IStringSerializable
 	private final String name;
 	private final int metadata;
 	private final MapColor mapColor;
+	private final String translationKey;
 
 	EnumXenColor(String n, int i, MapColor m)
 	{
 		name = n;
 		metadata = i;
 		mapColor = m;
+		translationKey = "xencraft.colors." + name;
 	}
 
 	@Override
@@ -67,5 +69,10 @@ public enum EnumXenColor implements IStringSerializable
 	public MapColor getMapColor()
 	{
 		return mapColor;
+	}
+
+	public String getTranslationKey()
+	{
+		return translationKey;
 	}
 }

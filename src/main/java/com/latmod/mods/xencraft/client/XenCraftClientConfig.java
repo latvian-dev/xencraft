@@ -20,57 +20,26 @@ public class XenCraftClientConfig
 	{
 		@Config.RangeInt(min = 0, max = 15)
 		@Config.Comment("How bright xen blocks are.")
-		public int xen_light_value = 15;
+		public int xen_light_value = 13;
 	}
 
 	public static class Colors
 	{
-		@Config.LangKey("xencraft.color.white")
 		public String white = "#FFFFFF";
-
-		@Config.LangKey("xencraft.color.gray")
 		public String gray = "#707070";
-
-		@Config.LangKey("xencraft.color.black")
 		public String black = "#161616";
-
-		@Config.LangKey("xencraft.color.brown")
 		public String brown = "#723D14";
-
-		@Config.LangKey("xencraft.color.red")
 		public String red = "#FF0000";
-
-		@Config.LangKey("xencraft.color.orange")
 		public String orange = "#FF8C00";
-
-		@Config.LangKey("xencraft.color.yellow")
 		public String yellow = "#FFD800";
-
-		@Config.LangKey("xencraft.color.lime")
 		public String lime = "#B6FF00";
-
-		@Config.LangKey("xencraft.color.green")
 		public String green = "#00FF00";
-
-		@Config.LangKey("xencraft.color.teal")
 		public String teal = "#00FFCB";
-
-		@Config.LangKey("xencraft.color.cyan")
 		public String cyan = "#00FFFF";
-
-		@Config.LangKey("xencraft.color.sky")
 		public String sky = "#21C3FF";
-
-		@Config.LangKey("xencraft.color.blue")
 		public String blue = "#0052FF";
-
-		@Config.LangKey("xencraft.color.purple")
 		public String purple = "#AA00FF";
-
-		@Config.LangKey("xencraft.color.magenta")
 		public String magenta = "#FF00FF";
-
-		@Config.LangKey("xencraft.color.pink")
 		public String pink = "#FF75B5";
 
 		private int[] colors = new int[EnumXenColor.VALUES.length];

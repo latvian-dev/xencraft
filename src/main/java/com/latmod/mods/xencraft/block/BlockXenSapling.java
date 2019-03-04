@@ -1,5 +1,6 @@
 package com.latmod.mods.xencraft.block;
 
+import com.latmod.mods.xencraft.XenCraft;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
@@ -15,15 +16,13 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
 /**
  * @author LatvianModder
  */
-public class BlockXenSapling extends BlockBush implements IGrowable
+public class BlockXenSapling extends BlockBush implements IGrowable, IXenBlock
 {
 	public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
 	public static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 0.8D, 0.9D);
@@ -109,6 +108,7 @@ public class BlockXenSapling extends BlockBush implements IGrowable
 	}
 
 	@Override
+	@Deprecated
 	public IBlockState getStateFromMeta(int meta)
 	{
 		return getDefaultState().withProperty(STAGE, meta);
@@ -133,18 +133,14 @@ public class BlockXenSapling extends BlockBush implements IGrowable
 	}
 
 	@Override
-	@Deprecated
-	@SideOnly(Side.CLIENT)
-	public int getPackedLightmapCoords(IBlockState state, IBlockAccess source, BlockPos pos)
+	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos)
 	{
-		return BlockXenBase.getPackedLightmapCoords(source, pos, BlockRenderLayer.CUTOUT);
+		return XenCraft.PROXY.getXenLightValue(world, getXenLayer());
 	}
 
 	@Override
-	@Deprecated
-	@SideOnly(Side.CLIENT)
-	public float getAmbientOcclusionLightValue(IBlockState state)
+	public BlockRenderLayer getXenLayer()
 	{
-		return 0F;
+		return BlockRenderLayer.CUTOUT;
 	}
 }

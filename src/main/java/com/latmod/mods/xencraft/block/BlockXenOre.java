@@ -1,5 +1,6 @@
 package com.latmod.mods.xencraft.block;
 
+import com.latmod.mods.xencraft.XenCraft;
 import com.latmod.mods.xencraft.item.XenCraftItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -18,13 +19,12 @@ import java.util.Random;
 /**
  * @author LatvianModder
  */
-public class BlockXenOre extends Block
+public class BlockXenOre extends Block implements IXenBlock
 {
 	public BlockXenOre()
 	{
 		super(Material.ROCK);
 		setHardness(2F);
-		setLightLevel(0.1F);
 		setHarvestLevel("pickaxe", 0);
 	}
 
@@ -77,11 +77,15 @@ public class BlockXenOre extends Block
 	}
 
 	@Override
-	@Deprecated
-	@SideOnly(Side.CLIENT)
-	public int getPackedLightmapCoords(IBlockState state, IBlockAccess source, BlockPos pos)
+	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos)
 	{
-		return BlockXenBase.getPackedLightmapCoords(source, pos, BlockRenderLayer.CUTOUT);
+		return XenCraft.PROXY.getXenLightValue(world, getXenLayer());
+	}
+
+	@Override
+	public BlockRenderLayer getXenLayer()
+	{
+		return BlockRenderLayer.CUTOUT;
 	}
 
 	@Override

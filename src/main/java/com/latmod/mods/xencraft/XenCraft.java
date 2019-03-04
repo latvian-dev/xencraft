@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -31,6 +32,9 @@ public class XenCraft
 	@Mod.Instance(MOD_ID)
 	public static XenCraft INSTANCE;
 
+	@SidedProxy(serverSide = "com.latmod.mods.xencraft.XenCraftCommon", clientSide = "com.latmod.mods.xencraft.client.XenCraftClient")
+	public static XenCraftCommon PROXY;
+
 	public static final CreativeTabs TAB = new CreativeTabs(MOD_ID)
 	{
 		@Override
@@ -43,7 +47,6 @@ public class XenCraft
 	@EventHandler
 	public void onPreInit(FMLPreInitializationEvent event)
 	{
-		XenCraftConfig.sync();
 		GameRegistry.registerWorldGenerator(new XenCraftWorldGenerator(), 0);
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new XenCraftGuiHandler());
 	}
@@ -51,6 +54,7 @@ public class XenCraft
 	@EventHandler
 	public void onInit(FMLInitializationEvent event)
 	{
+		XenCraftConfig.sync();
 		OreDictionary.registerOre("oreXen", XenCraftItems.XEN_ORE);
 		OreDictionary.registerOre("treeSapling", XenCraftItems.XEN_SAPLING);
 		OreDictionary.registerOre("logWood", XenCraftItems.XEN_LOG);

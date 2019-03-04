@@ -12,11 +12,14 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.block.statemap.StateMap;
+import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -145,5 +148,19 @@ public class XenCraftClientEventHandler
 			}
 			return 0xFFFFFFFF;
 		}, XenCraftItems.XEN_LEAVES);
+	}
+
+	@SubscribeEvent
+	public static void registerSprites(TextureStitchEvent.Pre event)
+	{
+		TextureMap map = event.getMap();
+		//int m = map.getMipmapLevels() + 1;
+
+		for (EnumXenPattern pattern : EnumXenPattern.VALUES)
+		{
+			pattern.stencilSprite = map.registerSprite(new ResourceLocation(XenCraft.MOD_ID, "blocks/stencil/" + pattern.getName()));
+		}
+
+		//map.setTextureEntry(new StencilTexture("", false, m));
 	}
 }

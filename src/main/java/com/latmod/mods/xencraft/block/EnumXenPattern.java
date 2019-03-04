@@ -21,6 +21,7 @@ public enum EnumXenPattern implements IStringSerializable
 	private String name;
 	public final BlockXen[] blocks;
 	public final ItemBlockXen[] items;
+	public Object stencilSprite;
 
 	EnumXenPattern(String n)
 	{

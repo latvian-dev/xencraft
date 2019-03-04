@@ -1,6 +1,7 @@
 package com.latmod.mods.xencraft.block;
 
 import com.google.common.collect.Lists;
+import com.latmod.mods.xencraft.XenCraft;
 import com.latmod.mods.xencraft.item.XenCraftItems;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks;
@@ -13,8 +14,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 import java.util.Random;
@@ -22,11 +21,10 @@ import java.util.Random;
 /**
  * @author LatvianModder
  */
-public class BlockXenLeaves extends BlockLeaves
+public class BlockXenLeaves extends BlockLeaves implements IXenBlock
 {
 	public BlockXenLeaves()
 	{
-		setLightLevel(0.1F);
 		setDefaultState(blockState.getBaseState().withProperty(CHECK_DECAY, false).withProperty(DECAYABLE, true));
 	}
 
@@ -130,18 +128,14 @@ public class BlockXenLeaves extends BlockLeaves
 	}
 
 	@Override
-	@Deprecated
-	@SideOnly(Side.CLIENT)
-	public int getPackedLightmapCoords(IBlockState state, IBlockAccess source, BlockPos pos)
+	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos)
 	{
-		return BlockXenBase.getPackedLightmapCoords(source, pos, BlockRenderLayer.CUTOUT);
+		return XenCraft.PROXY.getXenLightValue(world, getXenLayer());
 	}
 
 	@Override
-	@Deprecated
-	@SideOnly(Side.CLIENT)
-	public float getAmbientOcclusionLightValue(IBlockState state)
+	public BlockRenderLayer getXenLayer()
 	{
-		return 0F;
+		return BlockRenderLayer.CUTOUT;
 	}
 }
