@@ -9,7 +9,6 @@ import com.latmod.mods.xencraft.block.BlockXenSapling;
 import com.latmod.mods.xencraft.block.BlockXenTable;
 import com.latmod.mods.xencraft.block.BlockXenstone;
 import com.latmod.mods.xencraft.block.EnumXenPattern;
-import com.latmod.mods.xencraft.block.EnumXenType;
 import com.latmod.mods.xencraft.block.TileXenTable;
 import com.latmod.mods.xencraft.block.XenCraftBlocks;
 import com.latmod.mods.xencraft.item.ItemBlockXen;
@@ -58,17 +57,13 @@ public class XenCraftEventHandler
 		r.register(withName(new BlockXenLeaves(), "xen_leaves"));
 		r.register(withName(new BlockXenTable(), "table"));
 		r.register(withName(new BlockXenBase(), "xen_gem_block"));
-		r.register(withName(new BlockXenstone(true), "dark_xenstone"));
-		r.register(withName(new BlockXenstone(false), "light_xenstone"));
+		r.register(withName(new BlockXenstone(), "xenstone"));
 
-		for (EnumXenType type : EnumXenType.VALUES)
+		for (EnumXenPattern pattern : EnumXenPattern.VALUES)
 		{
-			for (EnumXenPattern pattern : EnumXenPattern.VALUES)
-			{
-				BlockXen blockXen = new BlockXen(type, pattern);
-				pattern.blocks[type.ordinal()] = blockXen;
-				r.register(withName(blockXen, type.getName() + "_xen_" + pattern.getName()));
-			}
+			BlockXen blockXen = new BlockXen(pattern);
+			pattern.block = blockXen;
+			r.register(withName(blockXen, "xen_" + pattern.getName()));
 		}
 
 		GameRegistry.registerTileEntity(TileXenTable.class, new ResourceLocation(XenCraft.MOD_ID, "table"));
@@ -88,18 +83,14 @@ public class XenCraftEventHandler
 		r.register(new ItemBlock(XenCraftBlocks.XEN_LEAVES).setRegistryName("xen_leaves"));
 		r.register(new ItemBlock(XenCraftBlocks.TABLE).setRegistryName("table"));
 		r.register(new ItemBlockXenBase(XenCraftBlocks.XEN_GEM_BLOCK).setRegistryName("xen_gem_block"));
-		r.register(new ItemBlockXenstone(XenCraftBlocks.DARK_XENSTONE).setRegistryName("dark_xenstone"));
-		r.register(new ItemBlockXenstone(XenCraftBlocks.LIGHT_XENSTONE).setRegistryName("light_xenstone"));
+		r.register(new ItemBlockXenstone(XenCraftBlocks.XENSTONE).setRegistryName("xenstone"));
 
-		for (EnumXenType type : EnumXenType.VALUES)
+		for (EnumXenPattern pattern : EnumXenPattern.VALUES)
 		{
-			for (EnumXenPattern pattern : EnumXenPattern.VALUES)
-			{
-				ItemBlockXen itemBlockXen = new ItemBlockXen(type, pattern);
-				itemBlockXen.setRegistryName(itemBlockXen.getBlock().getRegistryName());
-				pattern.items[type.ordinal()] = itemBlockXen;
-				r.register(itemBlockXen);
-			}
+			ItemBlockXen itemBlockXen = new ItemBlockXen(pattern);
+			itemBlockXen.setRegistryName(itemBlockXen.getBlock().getRegistryName());
+			pattern.item = itemBlockXen;
+			r.register(itemBlockXen);
 		}
 	}
 }

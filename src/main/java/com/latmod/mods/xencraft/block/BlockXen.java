@@ -5,12 +5,10 @@ package com.latmod.mods.xencraft.block;
  */
 public class BlockXen extends BlockXenBase
 {
-	public final EnumXenType type;
 	public final EnumXenPattern pattern;
 
-	public BlockXen(EnumXenType t, EnumXenPattern p)
+	public BlockXen(EnumXenPattern p)
 	{
-		type = t;
 		pattern = p;
 	}
 }

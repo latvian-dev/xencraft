@@ -8,10 +8,10 @@
 				"custom": {
 					"base": "xencraft:xen#normal",
 					"Solid": "xencraft:xen#normal",
-					"Cutout": "xencraft:dark_xen_bricks#overlay"
+					"Cutout": "xencraft:xen_small_bricks#overlay"
 				}
 			}
 		],
-		"overlay": [{"model": "xencraft:dark/bricks"}]
+		"overlay": [{"model": "xencraft:pattern/small_bricks"}]
 	}
 }

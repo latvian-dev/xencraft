@@ -19,15 +19,13 @@ public enum EnumXenPattern implements IStringSerializable
 	public static final EnumXenPattern[] VALUES = values();
 
 	private String name;
-	public final BlockXen[] blocks;
-	public final ItemBlockXen[] items;
+	public BlockXen block;
+	public ItemBlockXen item;
 	public Object stencilSprite;
 
 	EnumXenPattern(String n)
 	{
 		name = n;
-		blocks = new BlockXen[EnumXenType.VALUES.length];
-		items = new ItemBlockXen[EnumXenType.VALUES.length];
 	}
 
 	@Override

@@ -17,8 +17,7 @@ public class XenCraftItems
 	public static final Item XEN_LEAVES = Items.AIR;
 	public static final Item TABLE = Items.AIR;
 	public static final Item XEN_GEM_BLOCK = Items.AIR;
-	public static final Item DARK_XENSTONE = Items.AIR;
-	public static final Item LIGHT_XENSTONE = Items.AIR;
+	public static final Item XENSTONE = Items.AIR;
 
 	public static final Item XEN_GEM = Items.AIR;
 	public static final Item XEN_INGOT = Items.AIR;

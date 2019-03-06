@@ -1,6 +1,6 @@
 {
 	"parent": "block/cube_all",
 	"textures": {
-		"all": "xencraft:blocks/dark_xenstone"
+		"all": "xencraft:blocks/xenstone"
 	}
 }

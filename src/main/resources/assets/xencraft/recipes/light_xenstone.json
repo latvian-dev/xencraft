@@ -1,8 +1,0 @@
-{
-	"type": "minecraft:crafting_shapeless",
-	"group": "xencraft:xenstone",
-	"result": {"item": "light_xenstone"},
-	"ingredients": [
-		{"item": "dark_xenstone"}
-	]
-}

@@ -5,7 +5,6 @@ import com.latmod.mods.xencraft.block.BlockXenBase;
 import com.latmod.mods.xencraft.block.BlockXenSapling;
 import com.latmod.mods.xencraft.block.EnumXenColor;
 import com.latmod.mods.xencraft.block.EnumXenPattern;
-import com.latmod.mods.xencraft.block.EnumXenType;
 import com.latmod.mods.xencraft.block.XenCraftBlocks;
 import com.latmod.mods.xencraft.item.XenCraftItems;
 import net.minecraft.block.Block;
@@ -61,15 +60,11 @@ public class XenCraftClientEventHandler
 		ModelLoader.setCustomStateMapper(XenCraftBlocks.XEN_LEAVES, new StateMap.Builder().ignore(BlockLeaves.CHECK_DECAY, BlockLeaves.DECAYABLE).build());
 		addModel(XenCraftItems.TABLE, "normal");
 		addXenModel(XenCraftBlocks.XEN_GEM_BLOCK, XenCraftItems.XEN_GEM_BLOCK);
-		addModel(XenCraftItems.DARK_XENSTONE, "normal");
-		addModel(XenCraftItems.LIGHT_XENSTONE, "normal");
+		addModel(XenCraftItems.XENSTONE, "normal");
 
-		for (EnumXenType type : EnumXenType.VALUES)
+		for (EnumXenPattern pattern : EnumXenPattern.VALUES)
 		{
-			for (EnumXenPattern pattern : EnumXenPattern.VALUES)
-			{
-				addXenModel(pattern.blocks[type.ordinal()], pattern.items[type.ordinal()]);
-			}
+			addXenModel(pattern.block, pattern.item);
 		}
 
 		addModel(XenCraftItems.XEN_GEM, "inventory");
@@ -93,12 +88,9 @@ public class XenCraftClientEventHandler
 		List<Block> blocks = new ArrayList<>();
 		blocks.add(XenCraftBlocks.XEN_GEM_BLOCK);
 
-		for (EnumXenType type : EnumXenType.VALUES)
+		for (EnumXenPattern pattern : EnumXenPattern.VALUES)
 		{
-			for (EnumXenPattern pattern : EnumXenPattern.VALUES)
-			{
-				blocks.add(pattern.blocks[type.ordinal()]);
-			}
+			blocks.add(pattern.block);
 		}
 
 		event.getBlockColors().registerBlockColorHandler((state, world, pos, tintIndex) -> tintIndex == 0 ? col(state.getValue(BlockXenBase.COLOR)) : 0xFFFFFFFF, blocks.toArray(new Block[0]));
@@ -127,12 +119,9 @@ public class XenCraftClientEventHandler
 		List<Item> items = new ArrayList<>();
 		items.add(XenCraftItems.XEN_GEM_BLOCK);
 
-		for (EnumXenType type : EnumXenType.VALUES)
+		for (EnumXenPattern pattern : EnumXenPattern.VALUES)
 		{
-			for (EnumXenPattern pattern : EnumXenPattern.VALUES)
-			{
-				items.add(pattern.items[type.ordinal()]);
-			}
+			items.add(pattern.item);
 		}
 
 		event.getItemColors().registerItemColorHandler((stack, tintIndex) -> tintIndex == 0 ? col(EnumXenColor.byMeta(stack.getMetadata())) : 0xFFFFFFFF, items.toArray(new Item[0]));

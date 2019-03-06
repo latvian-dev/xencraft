@@ -1,7 +1,7 @@
 {
 	"type": "minecraft:crafting_shaped",
 	"group": "xencraft:xenstone",
-	"result": {"item": "dark_xenstone", "count": 8},
+	"result": {"item": "xenstone", "count": 8},
 	"pattern": [
 		"SSS",
 		"SXS",

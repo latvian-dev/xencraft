@@ -17,6 +17,5 @@ public class XenCraftBlocks
 	public static final Block XEN_LEAVES = Blocks.AIR;
 	public static final Block TABLE = Blocks.AIR;
 	public static final Block XEN_GEM_BLOCK = Blocks.AIR;
-	public static final Block DARK_XENSTONE = Blocks.AIR;
-	public static final Block LIGHT_XENSTONE = Blocks.AIR;
+	public static final Block XENSTONE = Blocks.AIR;
 }

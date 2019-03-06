@@ -21,7 +21,6 @@ import java.util.Arrays;
 public class TileXenTable extends TileEntity implements IItemHandlerModifiable
 {
 	public ItemStack[] items = new ItemStack[2];
-	public EnumXenType type = EnumXenType.DARK;
 	public EnumXenPattern pattern = EnumXenPattern.BLOCK;
 	public EnumXenColor color = EnumXenColor.WHITE;
 
@@ -42,7 +41,6 @@ public class TileXenTable extends TileEntity implements IItemHandlerModifiable
 			nbt.setTag("output", items[1].serializeNBT());
 		}
 
-		nbt.setByte("type", (byte) type.ordinal());
 		nbt.setByte("pattern", (byte) pattern.ordinal());
 		nbt.setByte("color", (byte) color.ordinal());
 	}
@@ -63,7 +61,6 @@ public class TileXenTable extends TileEntity implements IItemHandlerModifiable
 			items[1] = ItemStack.EMPTY;
 		}
 
-		type = EnumXenType.VALUES[nbt.getByte("type")];
 		pattern = EnumXenPattern.VALUES[nbt.getByte("pattern")];
 		color = EnumXenColor.VALUES[nbt.getByte("color")];
 	}
@@ -173,7 +170,7 @@ public class TileXenTable extends TileEntity implements IItemHandlerModifiable
 				existing.grow(reachedLimit ? limit : stack.getCount());
 			}
 
-			checkRecipe(slot);
+			checkRecipe();
 		}
 
 		return reachedLimit ? ItemHandlerHelper.copyStackWithSize(stack, stack.getCount() - limit) : ItemStack.EMPTY;
@@ -201,7 +198,7 @@ public class TileXenTable extends TileEntity implements IItemHandlerModifiable
 			if (!simulate)
 			{
 				items[slot] = ItemStack.EMPTY;
-				checkRecipe(slot);
+				checkRecipe();
 			}
 			return existing;
 		}
@@ -210,7 +207,7 @@ public class TileXenTable extends TileEntity implements IItemHandlerModifiable
 			if (!simulate)
 			{
 				items[slot] = ItemHandlerHelper.copyStackWithSize(existing, existing.getCount() - toExtract);
-				checkRecipe(slot);
+				checkRecipe();
 			}
 
 			return ItemHandlerHelper.copyStackWithSize(existing, toExtract);
@@ -229,7 +226,7 @@ public class TileXenTable extends TileEntity implements IItemHandlerModifiable
 		if (items[slot] != stack)
 		{
 			items[slot] = stack;
-			checkRecipe(slot);
+			checkRecipe();
 		}
 	}
 
@@ -245,7 +242,7 @@ public class TileXenTable extends TileEntity implements IItemHandlerModifiable
 		return false;
 	}
 
-	public void checkRecipe(int slot)
+	public void checkRecipe()
 	{
 		if (!items[1].isEmpty())
 		{
@@ -261,7 +258,7 @@ public class TileXenTable extends TileEntity implements IItemHandlerModifiable
 		}
 		else if (item instanceof ItemBlockXenstone || item instanceof ItemBlockXen)
 		{
-			items[1] = new ItemStack(pattern.items[type.ordinal()], items[0].getCount(), color.getMetadata());
+			items[1] = new ItemStack(pattern.item, items[0].getCount(), color.getMetadata());
 			items[0] = ItemStack.EMPTY;
 		}
 

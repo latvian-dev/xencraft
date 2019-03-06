@@ -9,12 +9,9 @@ import net.minecraft.block.material.Material;
  */
 public class BlockXenstone extends Block
 {
-	public final boolean dark;
-
-	public BlockXenstone(boolean d)
+	public BlockXenstone()
 	{
-		super(Material.ROCK, d ? MapColor.BLACK : MapColor.CLOTH);
+		super(Material.ROCK, MapColor.BLACK);
 		setHardness(1F);
-		dark = d;
 	}
 }

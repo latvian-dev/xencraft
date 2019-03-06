@@ -2,7 +2,6 @@ package com.latmod.mods.xencraft.client;
 
 import com.latmod.mods.xencraft.XenCraft;
 import com.latmod.mods.xencraft.block.EnumXenPattern;
-import com.latmod.mods.xencraft.block.EnumXenType;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureUtil;
 import net.minecraft.client.resources.IResource;
@@ -22,15 +21,13 @@ import java.util.function.Function;
  */
 public class StencilTexture extends TextureAtlasSprite
 {
-	private final EnumXenType type;
 	private final EnumXenPattern pattern;
 	private final boolean invert;
 	private final int mipmapLevels;
 
-	public StencilTexture(EnumXenType t, EnumXenPattern p, boolean i, int m)
+	public StencilTexture(EnumXenPattern p, boolean i, int m)
 	{
-		super(XenCraft.MOD_ID + ":generated/" + p + "/" + t);
-		type = t;
+		super(XenCraft.MOD_ID + ":generated/" + p);
 		pattern = p;
 		invert = i;
 		mipmapLevels = m;

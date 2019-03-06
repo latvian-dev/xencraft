@@ -8,10 +8,10 @@
 				"custom": {
 					"base": "xencraft:xen#normal",
 					"Solid": "xencraft:xen#normal",
-					"Cutout": "xencraft:dark_xen_plate#overlay"
+					"Cutout": "xencraft:xen_small_tiles#overlay"
 				}
 			}
 		],
-		"overlay": [{"model": "xencraft:dark/plate"}]
+		"overlay": [{"model": "xencraft:pattern/small_tiles"}]
 	}
 }

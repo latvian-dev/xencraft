@@ -2,7 +2,6 @@ package com.latmod.mods.xencraft.gui;
 
 import com.latmod.mods.xencraft.block.EnumXenColor;
 import com.latmod.mods.xencraft.block.EnumXenPattern;
-import com.latmod.mods.xencraft.block.EnumXenType;
 import com.latmod.mods.xencraft.block.TileXenTable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -89,12 +88,6 @@ public class ContainerXenTable extends Container
 			return true;
 		}
 		else if (id == 16)
-		{
-			table.type = EnumXenType.VALUES[(table.type.ordinal() + 1) % EnumXenType.VALUES.length];
-			table.markDirty();
-			return true;
-		}
-		else if (id == 17)
 		{
 			table.pattern = EnumXenPattern.VALUES[(table.pattern.ordinal() + 1) % EnumXenPattern.VALUES.length];
 			table.markDirty();
