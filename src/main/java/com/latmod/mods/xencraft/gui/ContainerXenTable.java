@@ -19,8 +19,8 @@ public class ContainerXenTable extends Container
 	public ContainerXenTable(TileXenTable t, EntityPlayer p)
 	{
 		table = t;
-		addSlotToContainer(new SlotItemHandler(table, 0, 93, 54));
-		addSlotToContainer(new SlotItemHandler(table, 1, 139, 54));
+		addSlotToContainer(new SlotItemHandler(table, 0, 93, 53));
+		addSlotToContainer(new SlotItemHandler(table, 1, 144, 53));
 
 		for (int k = 0; k < 3; ++k)
 		{

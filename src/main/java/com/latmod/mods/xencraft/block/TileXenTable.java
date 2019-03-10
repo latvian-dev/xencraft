@@ -31,12 +31,12 @@ public class TileXenTable extends TileEntity implements IItemHandlerModifiable
 
 	public void writeData(NBTTagCompound nbt)
 	{
-		if (items[0].isEmpty())
+		if (!items[0].isEmpty())
 		{
 			nbt.setTag("input", items[0].serializeNBT());
 		}
 
-		if (items[1].isEmpty())
+		if (!items[1].isEmpty())
 		{
 			nbt.setTag("output", items[1].serializeNBT());
 		}

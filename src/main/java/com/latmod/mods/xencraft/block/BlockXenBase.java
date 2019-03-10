@@ -63,6 +63,13 @@ public class BlockXenBase extends Block implements IXenBlock
 	}
 
 	@Override
+	@Deprecated
+	public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos)
+	{
+		return state.getValue(COLOR).getMapColor();
+	}
+
+	@Override
 	public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items)
 	{
 		for (EnumXenColor color : EnumXenColor.VALUES)
