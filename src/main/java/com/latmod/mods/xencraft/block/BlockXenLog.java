@@ -1,6 +1,5 @@
 package com.latmod.mods.xencraft.block;
 
-import com.latmod.mods.xencraft.XenCraft;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -44,12 +43,6 @@ public class BlockXenLog extends Block implements IXenBlock
 	public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, net.minecraft.entity.EntityLiving.SpawnPlacementType type)
 	{
 		return false;
-	}
-
-	@Override
-	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos)
-	{
-		return XenCraft.PROXY.getXenLightValue(world, getXenLayer());
 	}
 
 	@Override

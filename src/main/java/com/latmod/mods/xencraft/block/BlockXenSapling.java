@@ -1,6 +1,5 @@
 package com.latmod.mods.xencraft.block;
 
-import com.latmod.mods.xencraft.XenCraft;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
@@ -22,7 +21,7 @@ import java.util.Random;
 /**
  * @author LatvianModder
  */
-public class BlockXenSapling extends BlockBush implements IGrowable, IXenBlock
+public class BlockXenSapling extends BlockBush implements IGrowable
 {
 	public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
 	public static final AxisAlignedBB SAPLING_AABB = new AxisAlignedBB(0.1D, 0.0D, 0.1D, 0.9D, 0.8D, 0.9D);
@@ -130,17 +129,5 @@ public class BlockXenSapling extends BlockBush implements IGrowable, IXenBlock
 	public boolean canRenderInLayer(IBlockState state, BlockRenderLayer layer)
 	{
 		return layer == BlockRenderLayer.CUTOUT || layer == BlockRenderLayer.CUTOUT_MIPPED;
-	}
-
-	@Override
-	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos)
-	{
-		return XenCraft.PROXY.getXenLightValue(world, getXenLayer());
-	}
-
-	@Override
-	public BlockRenderLayer getXenLayer()
-	{
-		return BlockRenderLayer.CUTOUT;
 	}
 }

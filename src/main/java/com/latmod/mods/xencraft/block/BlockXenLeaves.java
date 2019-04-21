@@ -1,7 +1,6 @@
 package com.latmod.mods.xencraft.block;
 
 import com.google.common.collect.Lists;
-import com.latmod.mods.xencraft.XenCraft;
 import com.latmod.mods.xencraft.item.XenCraftItems;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks;
@@ -21,7 +20,7 @@ import java.util.Random;
 /**
  * @author LatvianModder
  */
-public class BlockXenLeaves extends BlockLeaves implements IXenBlock
+public class BlockXenLeaves extends BlockLeaves
 {
 	public BlockXenLeaves()
 	{
@@ -125,17 +124,5 @@ public class BlockXenLeaves extends BlockLeaves implements IXenBlock
 	public boolean canRenderInLayer(IBlockState state, BlockRenderLayer layer)
 	{
 		return layer == BlockRenderLayer.CUTOUT || layer == BlockRenderLayer.CUTOUT_MIPPED;
-	}
-
-	@Override
-	public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos)
-	{
-		return XenCraft.PROXY.getXenLightValue(world, getXenLayer());
-	}
-
-	@Override
-	public BlockRenderLayer getXenLayer()
-	{
-		return BlockRenderLayer.CUTOUT;
 	}
 }
