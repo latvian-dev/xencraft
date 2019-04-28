@@ -8,7 +8,6 @@ import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -123,11 +122,5 @@ public class BlockXenSapling extends BlockBush implements IGrowable
 	protected BlockStateContainer createBlockState()
 	{
 		return new BlockStateContainer(this, STAGE);
-	}
-
-	@Override
-	public boolean canRenderInLayer(IBlockState state, BlockRenderLayer layer)
-	{
-		return layer == BlockRenderLayer.CUTOUT || layer == BlockRenderLayer.CUTOUT_MIPPED;
 	}
 }

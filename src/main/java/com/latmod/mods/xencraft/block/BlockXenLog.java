@@ -12,7 +12,7 @@ import net.minecraft.world.IBlockAccess;
 /**
  * @author LatvianModder
  */
-public class BlockXenLog extends Block implements IXenBlock
+public class BlockXenLog extends Block
 {
 	public BlockXenLog()
 	{
@@ -34,19 +34,13 @@ public class BlockXenLog extends Block implements IXenBlock
 	}
 
 	@Override
-	public boolean canRenderInLayer(IBlockState state, BlockRenderLayer layer)
-	{
-		return layer == BlockRenderLayer.SOLID || layer == BlockRenderLayer.CUTOUT;
-	}
-
-	@Override
 	public boolean canCreatureSpawn(IBlockState state, IBlockAccess world, BlockPos pos, net.minecraft.entity.EntityLiving.SpawnPlacementType type)
 	{
 		return false;
 	}
 
 	@Override
-	public BlockRenderLayer getXenLayer()
+	public BlockRenderLayer getRenderLayer()
 	{
 		return BlockRenderLayer.CUTOUT;
 	}

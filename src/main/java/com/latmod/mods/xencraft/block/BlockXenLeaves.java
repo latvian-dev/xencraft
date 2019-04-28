@@ -121,8 +121,8 @@ public class BlockXenLeaves extends BlockLeaves
 	}
 
 	@Override
-	public boolean canRenderInLayer(IBlockState state, BlockRenderLayer layer)
+	public BlockRenderLayer getRenderLayer()
 	{
-		return layer == BlockRenderLayer.CUTOUT || layer == BlockRenderLayer.CUTOUT_MIPPED;
+		return BlockRenderLayer.CUTOUT_MIPPED;
 	}
 }

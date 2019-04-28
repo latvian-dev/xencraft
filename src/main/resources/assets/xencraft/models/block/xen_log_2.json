@@ -1,5 +1,5 @@
 {
-	"parent": "xencraft:block/xen_ore_overlay",
+	"parent": "xencraft:block/xen_log",
 	"textures": {
 		"texture": "xencraft:blocks/xen_log_overlay_2"
 	}

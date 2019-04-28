@@ -1,0 +1,34 @@
+{
+	"parent": "block/block",
+	"textures": {
+		"log": "minecraft:blocks/log_oak",
+		"log_top": "minecraft:blocks/log_oak_top",
+		"particle": "minecraft:blocks/log_oak"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#log", "cullface": "north"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#log", "cullface": "east"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#log", "cullface": "south"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#log", "cullface": "west"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#log_top", "cullface": "up"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#log_top", "cullface": "down"}
+			}
+		},
+		{
+			"from": [-0.05, -0.05, -0.05],
+			"to": [16.05, 16.05, 16.05],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#texture", "tintindex": 0, "cullface": "north"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#texture", "tintindex": 0, "cullface": "east"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#texture", "tintindex": 0, "cullface": "south"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#texture", "tintindex": 0, "cullface": "west"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#texture", "tintindex": 0, "cullface": "up"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#texture", "tintindex": 0, "cullface": "down"}
+			}
+		}
+	]
+}
